@@ -55,7 +55,6 @@ module.exports = yeoman.Base.extend({
 
   writing: function() {
 
-    // TODO - make this more automatic
     const folders = ['demo', 'src', 'test'];
     folders.forEach(folder => {
       this.fs.copyTpl(
@@ -97,6 +96,6 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function() {
-    this.installDependencies();
+    this.npmInstall();
   }
 });
