@@ -1,0 +1,37 @@
+{
+  "name": "generator-angular2-module",
+  "version": "0.0.0",
+  "description": "Generate an angular2 module scaffolding suitable for publishing a re-usable module to npm",
+  "homepage": "",
+  "author": {
+    "name": "Matt Lewis",
+    "email": "matthew.lewis@socialsignin.co.uk",
+    "url": "https://mattlewis.me"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "angular2",
+    "module",
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.23.0",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.1.0",
+    "eslint-config-xo-space": "^0.13.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "git@github.com:mattlewis92/generator-angular2-module.git",
+  "license": "MIT"
+}
