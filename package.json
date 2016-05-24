@@ -34,5 +34,9 @@
     }
   },
   "repository": "git@github.com:mattlewis92/generator-angular2-module.git",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint generators",
+    "prepublish": "npm run lint"
+  }
 }
