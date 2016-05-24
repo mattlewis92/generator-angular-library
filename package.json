@@ -8,7 +8,7 @@
     "email": "matthew.lewis@socialsignin.co.uk",
     "url": "https://mattlewis.me"
   },
-  "main": "generators/index.js",
+  "main": "generators/app/index.js",
   "keywords": [
     "angular2",
     "module",
