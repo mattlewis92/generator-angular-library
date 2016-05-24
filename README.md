@@ -15,6 +15,13 @@ Then create your new repo on github, check it out and from the root of the repo 
 yo angular2-module
 ```
 
+To generate the demo:
+```bash
+git branch gh-pages
+git push origin gh-pages
+npm run gh-pages
+```
+
 ## License
 
 MIT © [Matt Lewis](https://mattlewis.me)
