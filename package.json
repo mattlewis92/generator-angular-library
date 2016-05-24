@@ -13,7 +13,8 @@
     "generators",
     "generators/**/*",
     "generators/app/templates/*",
-    "generators/app/templates/**/*"
+    "generators/app/templates/**/*",
+    "generators/app/templates/webpack.config.js"
   ],
   "keywords": [
     "angular2",
