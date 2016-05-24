@@ -78,11 +78,9 @@ module.exports = yeoman.Base.extend({
 
     const files = [
       '.editorconfig',
-      '.gitignore',
       '.travis.yml',
       'karma.conf.js',
       'LICENSE',
-      'package.json',
       'README.md',
       'tsconfig.json',
       'tslint.json',
@@ -98,6 +96,18 @@ module.exports = yeoman.Base.extend({
         this.props
       );
     });
+
+    this.fs.copyTpl(
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_.gitignore'),
+      this.destinationPath('.gitignore'),
+      this.props
+    );
 
     this.fs.copyTpl(
       this.templatePath('module-entry.ts'),
