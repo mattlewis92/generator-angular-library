@@ -7,5 +7,5 @@ import {
   template: 'Hello world from the {{ projectTitle }} module!'
 })
 export class HelloWorld {
-  projectTitle: '<%- projectTitle %>';
+  projectTitle: string = '<%- projectTitle %>';
 }
