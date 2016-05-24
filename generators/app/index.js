@@ -10,11 +10,9 @@ module.exports = yeoman.Base.extend({
 
     this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular2-module')} generator!`));
 
-    // TODO - auto generate these answers
-
     const required = val => !!val;
 
-    const githubUsernamePromise = new Promise((resolve) => {
+    const githubUsernamePromise = new Promise(resolve => {
       this.user.github.username((err, username) => resolve(username));
     });
 

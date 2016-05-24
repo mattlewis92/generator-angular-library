@@ -1,4 +1,4 @@
-# generator-angular2-module [![NPM version][npm-image]][npm-url]
+# generator-angular2-module
 > Generate an angular2 module scaffolding suitable for publishing a re-usable module to npm
 
 ## Installation
@@ -10,7 +10,7 @@ npm install -g yo
 npm install -g generator-angular2-module
 ```
 
-Then generate your new project:
+Then create your new repo on github, check it out and from the root of the repo folder run:
 
 ```bash
 yo angular2-module

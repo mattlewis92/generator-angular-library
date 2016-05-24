@@ -1,6 +1,6 @@
 {
   "name": "generator-angular2-module",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generate an angular2 module scaffolding suitable for publishing a re-usable module to npm",
   "homepage": "",
   "author": {
@@ -28,10 +28,17 @@
   },
   "eslintConfig": {
     "extends": "xo-space",
-    "env": {
-      "mocha": true
+    "rules": {
+      "space-before-function-paren": 0,
+      "padded-blocks": 0,
+      "no-implicit-coercion": 0,
+      "handle-callback-err": 0
     }
   },
   "repository": "git@github.com:mattlewis92/generator-angular2-module.git",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint generators",
+    "prepublish": "npm run lint"
+  }
 }
