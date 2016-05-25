@@ -1,5 +1,7 @@
 # generator-angular2-module
-> Simply scaffold your module with this yeoman generator and start writing code without having to setup any tedious boilerplate tooling. Everything is pre-configured, from a local development server with unit tests, through to publishing your module to npm and a demo to github pages.
+>Simply scaffold your module with this yeoman generator and start writing code without having to setup any tedious boilerplate tooling. 
+
+Everything is pre-configured, from a local development server with unit tests, through to publishing your module to npm and a demo to github pages. Hopefully the [angular-cli](https://cli.angular.io/) project will one day make this generator obsolete, however currently the angular-cli is geared towards creating a full web-app rather than just a single re-usable module.
 
 ## Installation
 
