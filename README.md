@@ -24,14 +24,6 @@ git push origin gh-pages
 npm run gh-pages
 ```
 
-## Features
-
-* Build your module in [typescript](https://www.typescriptlang.org/) with [webpack](https://webpack.github.io/)
-* Run your tests with [karma](http://karma-runner.github.io/)
-* Auto-lint your module with [tslint](https://palantir.github.io/tslint/)
-* Automatic documentation generated with [typedoc](http://typedoc.io/)
-* Publish your module to [npm](https://www.npmjs.com/)
-
 ## Usage
 
 Once you've scaffolded out your module everything is then controlled by npm scripts:
@@ -39,6 +31,14 @@ Once you've scaffolded out your module everything is then controlled by npm scri
 * `npm test` will run your unit tests once and `npm run test:watch` will run them continuously
 * `npm run commit` will run the git commit wizard when you're ready to commit a change
 * `npm run release` will publish a new release. First make sure you've created the `gh-pages` branch and pushed it to github. Next change the version in package.json to the new version you would like to release, but don't commit it yet. Now run `npm run release` and the new version will be built and published to npm, as well as the demo and documentation generated and pushed to the `gh-pages` branch of your project.
+
+## Tools used
+
+* Build your module in [typescript](https://www.typescriptlang.org/) with [webpack](https://webpack.github.io/)
+* Run your tests with [karma](http://karma-runner.github.io/)
+* Auto-lint your module with [tslint](https://palantir.github.io/tslint/)
+* Automatic documentation generated with [typedoc](http://typedoc.io/)
+* Publish your module to [npm](https://www.npmjs.com/)
 
 ## License
 
