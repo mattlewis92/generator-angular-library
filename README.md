@@ -24,7 +24,12 @@ git push origin gh-pages
 npm run gh-pages
 ```
 
-## Usage
+## Folder structure
+* `src` should hold your modules components / services / pipes etc. Organised them however you see fit!
+* `test` contains all your modules test files. Simply suffix the filenames with `.spec.ts` and they will be auto-included and ran
+* `demo` contains a demo app that shows off your module to users. It is also handy during development as unit tests will only get you so far when developing a UI component
+
+## npm scripts
 
 Once you've scaffolded out your module everything is then controlled by npm scripts:
 * `npm start` to serve the demo page of your module with live-reload as you develop. Unit tests are also run in the background.
