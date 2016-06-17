@@ -25,7 +25,7 @@ https://<%- githubUsername %>.github.io/<%- githubRepoName %>/demo/
 
 Install through npm:
 ```
-npm install --save @angular/core@2.0.0-rc.1 <%- npmModuleName %>
+npm install --save <%- npmModuleName %>
 ```
 
 Then use it in your app like so:
