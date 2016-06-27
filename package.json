@@ -1,6 +1,6 @@
 {
   "name": "generator-angular2-module",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Generate an angular2 module scaffolding suitable for publishing a re-usable module to npm",
   "homepage": "",
   "author": {
