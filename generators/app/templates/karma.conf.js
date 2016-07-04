@@ -77,7 +77,7 @@ module.exports = function(config) {
       reports: {
         lcovonly: 'coverage/lcov.info',
         html: 'coverage/html',
-        'text-summary': null
+        'text-summary': null // eslint-disable-line
       },
       timeoutNotCreated: 5000,
       timeoutNoMoreFiles: 1000
