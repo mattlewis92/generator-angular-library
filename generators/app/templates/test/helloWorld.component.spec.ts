@@ -4,6 +4,7 @@ import {
   TestComponentBuilder,
   ComponentFixture
 } from '@angular/core/testing';
+import {expect} from 'chai';
 import {HelloWorld} from './../<%- npmModuleName %>';
 
 describe('hello-world component', () => {
@@ -16,7 +17,7 @@ describe('hello-world component', () => {
   it('should say hello world', async(() => {
     builder.createAsync(HelloWorld).then((fixture: ComponentFixture<HelloWorld>) => {
       fixture.detectChanges();
-      expect(fixture.nativeElement).toHaveText('Hello world from the <%- projectTitle %> module!');
+      expect(fixture.nativeElement.innerHTML.trim()).to.equal('Hello world from the <%- projectTitle %> module!');
     });
   }));
 
