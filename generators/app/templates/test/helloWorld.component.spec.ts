@@ -1,12 +1,9 @@
 import {
-  describe,
-  it,
-  expect,
-  beforeEach,
   inject,
-  async
+  async,
+  TestComponentBuilder,
+  ComponentFixture
 } from '@angular/core/testing';
-import {TestComponentBuilder, ComponentFixture} from '@angular/compiler/testing';
 import {HelloWorld} from './../<%- npmModuleName %>';
 
 describe('hello-world component', () => {

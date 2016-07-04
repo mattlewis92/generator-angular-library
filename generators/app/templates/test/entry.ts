@@ -5,9 +5,7 @@ import 'zone.js/dist/long-stack-trace-zone';
 import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'rxjs';
-import {
-  setBaseTestProviders
-} from '@angular/core/testing';
+import {setBaseTestProviders} from '@angular/core/testing';
 import {
   TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
   TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
