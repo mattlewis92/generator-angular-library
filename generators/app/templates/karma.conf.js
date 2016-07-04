@@ -74,10 +74,10 @@ module.exports = function(config) {
 
     remapIstanbulReporter: {
       src: 'coverage/coverage-final.json',
-      reports: {
+      reports: { // eslint-disable-line
         lcovonly: 'coverage/lcov.info',
         html: 'coverage/html',
-        'text-summary': null // eslint-disable-line
+        'text-summary': null
       },
       timeoutNotCreated: 5000,
       timeoutNoMoreFiles: 1000
