@@ -28,7 +28,7 @@
   "keywords": [
     "angular2"
   ],
-  "author": "Matt Lewis",
+  "author": "<%- authorName %>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/<%- githubUsername %>/<%- githubRepoName %>/issues"
