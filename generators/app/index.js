@@ -43,6 +43,14 @@ module.exports = yeoman.Base.extend({
         }
       }, {
         type: 'input',
+        name: 'ngModuleName',
+        message: 'What should the NgModule name be?',
+        validate: required,
+        default(answers) {
+          return _.upperFirst(_.camelCase(answers.npmModuleName)) + 'Module';
+        }
+      }, {
+        type: 'input',
         name: 'projectTitle',
         message: 'What is the human readable project title?',
         default: this.determineAppname()
@@ -61,13 +69,14 @@ module.exports = yeoman.Base.extend({
 
     }).then(props => {
       this.props = props;
+      this.props.ngModuleFilename = _.lowerFirst(`${this.props.ngModuleName.replace(/Module$/, '')}.module.ts`);
     });
 
   },
 
   writing: function() {
 
-    const folders = ['demo', 'src', 'test'];
+    const folders = ['demo', 'test'];
     folders.forEach(folder => {
       this.fs.copyTpl(
         this.templatePath(`${folder}/**`),
@@ -87,7 +96,8 @@ module.exports = yeoman.Base.extend({
       'typedoc.json',
       'typings.json',
       'webpack.config.dist.js',
-      'webpack.config.js'
+      'webpack.config.js',
+      'src/helloWorld.component.ts'
     ];
     files.forEach(file => {
       this.fs.copyTpl(
@@ -112,6 +122,12 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('module-entry.ts'),
       this.destinationPath(`${this.props.npmModuleName}.ts`),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('src/ngModule.module.ts'),
+      this.destinationPath('src/' + this.props.ngModuleFilename),
       this.props
     );
 
