@@ -13,7 +13,11 @@ module.exports = yeoman.Base.extend({
     const required = val => !!val;
 
     const githubUsernamePromise = new Promise(resolve => {
-      this.user.github.username((err, username) => resolve(username));
+      try {
+        this.user.github.username((err, username) => resolve(username));
+      } catch (e) {
+        resolve('');
+      }
     });
 
     return githubUsernamePromise.then(githubUsername => {
