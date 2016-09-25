@@ -5,7 +5,7 @@ import {
 } from '@angular/core/testing';
 import {expect} from 'chai';
 import {HelloWorld} from './../src/helloWorld.component';
-import {<%- ngModuleName %>} from './../<%- npmModuleName %>';
+import {<%- ngModuleName %>} from '../src';
 
 describe('hello-world component', () => {
 

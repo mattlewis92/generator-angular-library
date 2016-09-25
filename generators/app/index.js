@@ -124,12 +124,6 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('module-entry.ts'),
-      this.destinationPath(`${this.props.npmModuleName}.ts`),
-      this.props
-    );
-
-    this.fs.copyTpl(
       this.templatePath('src/ngModule.module.ts'),
       this.destinationPath('src/' + this.props.ngModuleFilename),
       this.props

@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './<%- npmModuleName %>.ts',
+  entry: './src/index.ts',
   output: {
     filename: './<%- npmModuleName %>.js',
     libraryTarget: 'umd',
