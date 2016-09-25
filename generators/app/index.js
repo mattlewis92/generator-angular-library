@@ -99,7 +99,7 @@ module.exports = yeoman.Base.extend({
       'tsconfig-ngc.json',
       'tslint.json',
       'typedoc.json',
-      'webpack.config.dist.js',
+      'webpack.config.umd.js',
       'webpack.config.js',
       'src/helloWorld.component.ts',
       'src/index.ts'
