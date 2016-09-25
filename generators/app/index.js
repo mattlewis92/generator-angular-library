@@ -98,10 +98,10 @@ module.exports = yeoman.Base.extend({
       'tsconfig.json',
       'tslint.json',
       'typedoc.json',
-      'typings.json',
       'webpack.config.dist.js',
       'webpack.config.js',
-      'src/helloWorld.component.ts'
+      'src/helloWorld.component.ts',
+      'src/index.ts'
     ];
     files.forEach(file => {
       this.fs.copyTpl(
