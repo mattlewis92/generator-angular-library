@@ -1,6 +1,7 @@
 module.exports = {
   entry: './src/index.ts',
   output: {
+    path: __dirname + '/dist/umd',
     filename: './<%- npmModuleName %>.js',
     libraryTarget: 'umd',
     library: '<%- moduleGlobal %>'
@@ -25,12 +26,7 @@ module.exports = {
       test: /\.ts$/, loader: 'tslint-loader?emitErrors=true&failOnHint=true', exclude: /node_modules/
     }],
     loaders: [{
-      test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules/,
-      query: {
-        compilerOptions: {
-          declaration: true
-        }
-      }
+      test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules/
     }]
   },
   resolve: {

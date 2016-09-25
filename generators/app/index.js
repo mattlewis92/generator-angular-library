@@ -96,6 +96,7 @@ module.exports = yeoman.Base.extend({
       'LICENSE',
       'README.md',
       'tsconfig.json',
+      'tsconfig-ngc.json',
       'tslint.json',
       'typedoc.json',
       'webpack.config.dist.js',
