@@ -1,7 +1,9 @@
+const path = require('path');
+
 module.exports = {
   entry: './src/index.ts',
   output: {
-    path: __dirname + '/dist/umd',
+    path: path.join(__dirname, 'dist', 'umd'),
     filename: './<%- npmModuleName %>.js',
     libraryTarget: 'umd',
     library: '<%- moduleGlobal %>'
