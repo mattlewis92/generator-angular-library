@@ -46,7 +46,7 @@ You may also find it useful to view the [demo source](https://github.com/<%- git
 
 ### Usage without a module bundler
 ```
-<script src="node_modules/<%- npmModuleName %>/<%- npmModuleName %>.js"></script>
+<script src="node_modules/dist/umd/<%- npmModuleName %>/<%- npmModuleName %>.js"></script>
 <script>
     // everything is exported <%- moduleGlobal %> namespace
 </script>
@@ -63,7 +63,7 @@ https://<%- githubUsername %>.github.io/<%- githubRepoName %>/docs/
 * Install local dev dependencies: `npm install` while current directory is this repo
 
 ### Development server
-Run `npm start` to start a development server on port 8000 with auto reload + tests. 
+Run `npm start` to start a development server on port 8000 with auto reload + tests.
 
 ### Testing
 Run `npm test` to run tests once or `npm run test:watch` to continually run tests.
