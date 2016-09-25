@@ -37,17 +37,17 @@ module.exports = function(config) {
       },
       module: {
         preLoaders: [{
-          test: /\.ts$/, loader: 'tslint', exclude: /node_modules/
+          test: /\.ts$/, loader: 'tslint-loader', exclude: /node_modules/
         }],
         loaders: [{
-          test: /\.ts$/, loader: 'ts', exclude: /node_modules/
+          test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules/
         }, {
-          test: /sinon.js$/, loader: 'imports?define=>false,require=>false'
+          test: /sinon.js$/, loader: 'imports-loader?define=>false,require=>false'
         }],
         postLoaders: [{
           test: /src\/.+\.ts$/,
           exclude: /(test|node_modules)/,
-          loader: 'sourcemap-istanbul-instrumenter?force-sourcemap=true'
+          loader: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true'
         }]
       },
       tslint: {

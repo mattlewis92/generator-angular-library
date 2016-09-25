@@ -22,10 +22,10 @@ module.exports = {
   devtool: 'source-map',
   module: {
     preLoaders: [{
-      test: /\.ts$/, loader: 'tslint?emitErrors=true&failOnHint=true', exclude: /node_modules/
+      test: /\.ts$/, loader: 'tslint-loader?emitErrors=true&failOnHint=true', exclude: /node_modules/
     }],
     loaders: [{
-      test: /\.ts$/, loader: 'ts', exclude: /node_modules/,
+      test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules/,
       query: {
         compilerOptions: {
           declaration: true
