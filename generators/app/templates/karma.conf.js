@@ -64,7 +64,7 @@ module.exports = function(config) {
 
     remapIstanbulReporter: {
       reports: { // eslint-disable-line
-        html: 'coverage/html',
+        'html': 'coverage/html',
         'text-summary': null
       }
     },
