@@ -37,6 +37,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint generators",
+    "postversion": "npm publish",
     "prepublish": "npm run lint"
   }
 }
