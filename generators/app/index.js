@@ -8,7 +8,7 @@ const _ = require('lodash');
 module.exports = yeoman.Base.extend({
   prompting: function() {
 
-    this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular2-module')} generator!`));
+    this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular-library')} generator!`));
 
     const required = val => !!val;
 

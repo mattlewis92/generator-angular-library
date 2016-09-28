@@ -27,7 +27,8 @@
     "url": "git+https://github.com/<%- githubUsername %>/<%- githubRepoName %>.git"
   },
   "keywords": [
-    "angular2"
+    "angular2",
+    "angular"
   ],
   "author": "<%- authorName %>",
   "license": "MIT",
