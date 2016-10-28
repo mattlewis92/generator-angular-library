@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "eslint": "^3.5.0",
-    "eslint-config-xo-space": "^0.14.0"
+    "eslint-config-xo-space": "^0.15.0"
   },
   "eslintConfig": {
     "extends": "xo-space",
