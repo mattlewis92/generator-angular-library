@@ -91,6 +91,7 @@ module.exports = yeoman.Base.extend({
 
     const files = [
       '.editorconfig',
+      '.npmrc',
       '.travis.yml',
       'karma.conf.js',
       'LICENSE',
