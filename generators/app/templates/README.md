@@ -42,7 +42,7 @@ import {HelloWorld} from '<%- npmModuleName %>';
 export class DemoApp {}
 ```
 
-You may also find it useful to view the [demo source](https://github.com/<%- githubUsername %>/<%- githubRepoName %>/blob/master/demo/demo.ts).
+You may also find it useful to view the [demo source](https://github.com/<%- githubUsername %>/<%- githubRepoName %>/blob/master/demo/demo.component.ts).
 
 ### Usage without a module bundler
 ```
