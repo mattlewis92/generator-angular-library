@@ -91,7 +91,6 @@ module.exports = yeoman.Base.extend({
 
     const files = [
       '.editorconfig',
-      '.npmrc',
       '.travis.yml',
       'karma.conf.js',
       'LICENSE',
@@ -122,6 +121,12 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_.gitignore'),
       this.destinationPath('.gitignore'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_.npmrc'),
+      this.destinationPath('.npmrc'),
       this.props
     );
 
