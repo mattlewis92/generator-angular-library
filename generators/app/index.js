@@ -140,5 +140,7 @@ module.exports = yeoman.Base.extend({
 
   install: function() {
     this.installDependencies({bower: false});
+    this.log('Make sure to now create the gh-pages branch:');
+    this.log('`git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master`');
   }
 });
