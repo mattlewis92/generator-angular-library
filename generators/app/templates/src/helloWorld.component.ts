@@ -1,11 +1,9 @@
-import {
-  Component
-} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'hello-world',
+  selector: '<%- selectorPrefix %>-hello-world',
   template: 'Hello world from the {{ projectTitle }} module!'
 })
-export class HelloWorld {
+export class HelloWorldComponent {
   projectTitle: string = '<%- projectTitle %>';
 }

@@ -1,12 +1,12 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {<%- ngModuleName %>} from '../src';
-import {Demo} from './demo.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { <%- ngModuleName %> } from '../src';
+import { DemoComponent } from './demo.component';
 
 @NgModule({
-  declarations: [Demo],
+  declarations: [DemoComponent],
   imports: [BrowserModule, <%- ngModuleName %>],
-  bootstrap: [Demo],
+  bootstrap: [DemoComponent],
   providers: []
 })
 export class DemoModule {}

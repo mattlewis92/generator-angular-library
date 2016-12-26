@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'demo-app',
-  template: '<hello-world></hello-world>'
+  selector: '<%- selectorPrefix %>-demo-app',
+  template: '<<%- selectorPrefix %>-hello-world></<%- selectorPrefix %>-hello-world>'
 })
-export class Demo {}
+export class DemoComponent {}

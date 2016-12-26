@@ -1,12 +1,12 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {HelloWorld} from './helloWorld.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HelloWorldComponent } from './helloWorld.component';
 
 @NgModule({
   declarations: [
-    HelloWorld
+    HelloWorldComponent
   ],
   imports: [CommonModule],
-  exports: [HelloWorld]
+  exports: [HelloWorldComponent]
 })
 export class <%- ngModuleName %> {}

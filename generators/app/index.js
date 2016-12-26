@@ -55,6 +55,11 @@ module.exports = yeoman.Base.extend({
         }
       }, {
         type: 'input',
+        name: 'selectorPrefix',
+        message: 'What should the component / directive selector prefix be',
+        validate: required
+      }, {
+        type: 'input',
         name: 'projectTitle',
         message: 'What is the human readable project title?',
         default: this.determineAppname()

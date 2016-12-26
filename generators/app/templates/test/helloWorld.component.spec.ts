@@ -3,18 +3,18 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-import {expect} from 'chai';
-import {HelloWorld} from './../src/helloWorld.component';
-import {<%- ngModuleName %>} from '../src';
+import { expect } from 'chai';
+import { HelloWorldComponent } from './../src/helloWorld.component';
+import { <%- ngModuleName %> } from '../src';
 
-describe('hello-world component', () => {
+describe('<%- selectorPrefix %>-hello-world component', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({imports: [<%- ngModuleName %>]});
   });
 
   it('should say hello world', () => {
-    const fixture: ComponentFixture<HelloWorld> = TestBed.createComponent(HelloWorld);
+    const fixture: ComponentFixture<HelloWorldComponent> = TestBed.createComponent(HelloWorldComponent);
     fixture.detectChanges();
     expect(fixture.nativeElement.innerHTML.trim()).to.equal('Hello world from the <%- projectTitle %> module!');
   });
