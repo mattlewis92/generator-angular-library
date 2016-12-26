@@ -1,11 +1,12 @@
 'use strict';
 
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const _ = require('lodash');
+const isInstalled = require('is-installed');
 
-module.exports = yeoman.Base.extend({
+module.exports = Generator.extend({
   prompting: function() {
 
     this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular-library')} generator!`));
@@ -144,8 +145,14 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function() {
-    this.installDependencies({bower: false});
     this.log('Make sure to now create the gh-pages branch:');
     this.log('`git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master`');
+    return isInstalled('yarn').then(exists => {
+      if (exists) {
+        this.yarnInstall();
+      } else {
+        this.npmInstall();
+      }
+    });
   }
 });
