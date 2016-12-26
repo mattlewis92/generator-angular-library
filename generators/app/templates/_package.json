@@ -68,7 +68,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
     "phantomjs-prebuilt": "^2.1.7",
-    "rxjs": "5.0.0-beta.12",
+    "rxjs": "^5.0.1",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
     "sourcemap-istanbul-instrumenter-loader": "^0.2.0",
@@ -80,7 +80,7 @@
     "validate-commit-msg": "^2.8.0",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.16.1",
-    "zone.js": "^0.6.12"
+    "zone.js": "^0.7.4"
   },
   "peerDependencies": {
     "@angular/core": "^2.0.0"
