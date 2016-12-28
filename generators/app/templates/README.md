@@ -28,18 +28,28 @@ Install through npm:
 npm install --save <%- npmModuleName %>
 ```
 
-Then use it in your app like so:
+Then include in your apps module:
 
 ```typescript
-import {Component} from '@angular/core';
-import {HelloWorld} from '<%- npmModuleName %>';
+import { Component, NgModule } from '@angular/core';
+import { <%- ngModuleName %> } from '<%- npmModuleName %>';
+
+@NgModule({
+  imports: [
+    <%- ngModuleName %>.forRoot()
+  ]
+})
+export class MyModule {}
+```
+
+Finally use in one of your apps components:
+```typescript
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'demo-app',
-  directives: [HelloWorld],
   template: '<hello-world></hello-world>'
 })
-export class DemoApp {}
+export class MyComponent {}
 ```
 
 You may also find it useful to view the [demo source](https://github.com/<%- githubUsername %>/<%- githubRepoName %>/blob/master/demo/demo.component.ts).
