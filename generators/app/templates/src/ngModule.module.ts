@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HelloWorldComponent } from './helloWorld.component';
 
@@ -9,4 +9,12 @@ import { HelloWorldComponent } from './helloWorld.component';
   imports: [CommonModule],
   exports: [HelloWorldComponent]
 })
-export class <%- ngModuleName %> {}
+export class <%- ngModuleName %> {
+
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: <%- ngModuleName %>
+    };
+  }
+
+}
