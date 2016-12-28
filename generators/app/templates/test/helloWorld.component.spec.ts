@@ -10,7 +10,7 @@ import { <%- ngModuleName %> } from '../src';
 describe('<%- selectorPrefix %>-hello-world component', () => {
 
   beforeEach(() => {
-    TestBed.configureTestingModule({imports: [<%- ngModuleName %>]});
+    TestBed.configureTestingModule({imports: [<%- ngModuleName %>.forRoot()]});
   });
 
   it('should say hello world', () => {
