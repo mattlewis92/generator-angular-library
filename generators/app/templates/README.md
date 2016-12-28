@@ -15,7 +15,7 @@ https://<%- githubUsername %>.github.io/<%- githubRepoName %>/demo/
 - [Installation](#installation)
 - [Documentation](#documentation)
 - [Development](#development)
-- [License](#licence)
+- [License](#license)
 
 ## About
 
