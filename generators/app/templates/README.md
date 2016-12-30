@@ -1,7 +1,7 @@
 # <%- projectTitle %>
 [![Build Status](https://travis-ci.org/<%- githubUsername %>/<%- githubRepoName %>.svg?branch=master)](https://travis-ci.org/<%- githubUsername %>/<%- githubRepoName %>)
 [![npm version](https://badge.fury.io/js/<%- npmModuleName %>.svg)](http://badge.fury.io/js/<%- npmModuleName %>)
-[![devDependency Status](https://david-dm.org/<%- githubUsername %>/<%- githubRepoName %>/dev-status.svg)](https://david-dm.org/<%- githubUsername %>/<%- githubRepoName %>#info=devDependencies)
+[![devDependency Status](https://david-dm.org/<%- githubUsername %>/<%- githubRepoName %>/dev-status.svg)](https://david-dm.org/<%- githubUsername %>/<%- githubRepoName %>?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/<%- githubUsername %>/<%- githubRepoName %>.svg)](https://github.com/<%- githubUsername %>/<%- githubRepoName %>/issues)
 [![GitHub stars](https://img.shields.io/github/stars/<%- githubUsername %>/<%- githubRepoName %>.svg)](https://github.com/<%- githubUsername %>/<%- githubRepoName %>/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/<%- githubUsername %>/<%- githubRepoName %>/master/LICENSE)
