@@ -5,12 +5,18 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 const _ = require('lodash');
 const isInstalled = require('is-installed');
+const utils = require('./utils');
 
 module.exports = Generator.extend({
+
+  initializing: function() {
+    this.initialConfig = this.config.getAll();
+  },
+
   prompting: function() {
 
     this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular-library')} generator!`));
-
+    utils.configInfo(this.initialConfig)
     const required = val => !!val;
 
     const githubUsernamePromise = new Promise(resolve => {
@@ -27,17 +33,21 @@ module.exports = Generator.extend({
         name: 'githubUsername',
         message: 'What is the github project organisation or username?',
         validate: required,
-        default: githubUsername
+        default: githubUsername,
+        when: utils.noConfig('githubUsername', this.initialConfig)
       }, {
         type: 'input',
         name: 'githubRepoName',
         message: 'What is the github repository name?',
-        default: this.appname.replace(/ /g, '-')
+        default: this.appname.replace(/ /g, '-'),
+        when: utils.noConfig('githubRepoName', this.initialConfig)
       }, {
         type: 'input',
         name: 'npmModuleName',
         message: 'What is the npm module name?',
-        default: this.appname.replace(/ /g, '-')
+        default: this.appname.replace(/ /g, '-'),
+        when: utils.noConfig('npmModuleName', this.initialConfig)
+        
       }, {
         type: 'input',
         name: 'moduleGlobal',
@@ -45,7 +55,8 @@ module.exports = Generator.extend({
         validate: required,
         default(answers) {
           return _.camelCase(answers.npmModuleName);
-        }
+        },
+        when: utils.noConfig('moduleGlobal', this.initialConfig)
       }, {
         type: 'input',
         name: 'ngModuleName',
@@ -53,39 +64,45 @@ module.exports = Generator.extend({
         validate: required,
         default(answers) {
           return _.upperFirst(_.camelCase(answers.npmModuleName)) + 'Module';
-        }
+        },
+        when: utils.noConfig('ngModuleName', this.initialConfig)
       }, {
         type: 'input',
         name: 'selectorPrefix',
         message: 'What should the component / directive selector prefix be',
-        validate: required
+        validate: required,
+        when: utils.noConfig('selectorPrefix', this.initialConfig)
       }, {
         type: 'input',
         name: 'projectTitle',
         message: 'What is the human readable project title?',
-        default: this.determineAppname()
+        default: this.determineAppname(),
+        when: utils.noConfig('projectTitle', this.initialConfig)
       }, {
         type: 'input',
         name: 'projectDescription',
-        message: 'What is the project description?'
+        message: 'What is the project description?',
+        when: utils.noConfig('projectDescription', this.initialConfig)        
       }, {
         type: 'input',
         name: 'authorName',
         message: 'What is the author name?',
-        default: this.user.git.name()
+        default: this.user.git.name(),
+        when: utils.noConfig('authorName', this.initialConfig)                
       }];
 
       return this.prompt(prompts);
 
     }).then(props => {
-      this.props = props;
-      this.props.ngModuleFilename = _.lowerFirst(`${this.props.ngModuleName.replace(/Module$/, '')}.module.ts`);
+      this.config.set(props);
+      this.config.save();
     });
 
   },
 
   writing: function() {
-
+    this.props = this.config.getAll();
+    this.props.ngModuleFilename = _.lowerFirst(`${this.props.ngModuleName.replace(/Module$/, '')}.module.ts`);
     const folders = ['demo', 'test'];
     folders.forEach(folder => {
       this.fs.copyTpl(
