@@ -5,10 +5,9 @@
     "moduleResolution": "node",
     "declaration": true,
     "experimentalDecorators": true,
-    "baseUrl": ".",
+    "baseUrl": "",
     "stripInternal": true,
-    "outDir": "./dist/esm",
-    "rootDir": "./",
+    "outDir": "./dist",
     "sourceMap": true,
     "inlineSources": true,
     "types": [],
@@ -19,7 +18,7 @@
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,
-    "genDir": "./dist/esm",
+    "genDir": "./dist/",
     "skipTemplateCodegen": true,
     "debug": true
   }
