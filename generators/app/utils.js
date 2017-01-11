@@ -1,6 +1,6 @@
-var chalk = require('chalk'),
-    path = require('path'),
-    fs = require('fs');
+'use strict';
+
+const chalk = require('chalk');
 
 module.exports = {
     noConfig: function (name, configs) {
@@ -13,8 +13,9 @@ module.exports = {
 
     },
     configInfo: function (config) {
-        console.info("Using Config: " + JSON.stringify(config))
-        console.info("The config is stored in .yo-rc.json and override the prompts")
+        console.info("Using Config: ")
+        console.info(JSON.stringify(config, null, 2))
+        console.info(`The config is stored in ${chalk.green('.yo-rc.json')} and override the prompts`)
         console.info("You can edit then or delete to re-run the generator")
     }
 
