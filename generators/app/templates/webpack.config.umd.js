@@ -10,12 +10,6 @@ module.exports = {
     path: path.join(__dirname, 'dist', 'bundles'),
     filename: '[name].js',
     libraryTarget: 'umd',
-    library: 'angularTest'
-  },
-  output: {
-    path: path.join(__dirname, 'dist', 'bundles'),
-    filename: '[name].js',
-    libraryTarget: 'umd',
     library: '<%- moduleGlobal %>'
   },
   externals: {
