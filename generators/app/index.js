@@ -9,14 +9,14 @@ const utils = require('./utils');
 
 module.exports = Generator.extend({
 
-  initializing: function() {
+  initializing: function () {
     this.initialConfig = this.config.getAll();
   },
 
-  prompting: function() {
+  prompting: function () {
 
     this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular-library')} generator!`));
-    utils.configInfo(this.initialConfig)
+    this._configInfo(this.initialConfig);
     const required = val => !!val;
 
     const githubUsernamePromise = new Promise(resolve => {
@@ -47,7 +47,7 @@ module.exports = Generator.extend({
         message: 'What is the npm module name?',
         default: this.appname.replace(/ /g, '-'),
         when: utils.noConfig('npmModuleName', this.initialConfig)
-        
+
       }, {
         type: 'input',
         name: 'moduleGlobal',
@@ -82,13 +82,13 @@ module.exports = Generator.extend({
         type: 'input',
         name: 'projectDescription',
         message: 'What is the project description?',
-        when: utils.noConfig('projectDescription', this.initialConfig)        
+        when: utils.noConfig('projectDescription', this.initialConfig)
       }, {
         type: 'input',
         name: 'authorName',
         message: 'What is the author name?',
         default: this.user.git.name(),
-        when: utils.noConfig('authorName', this.initialConfig)                
+        when: utils.noConfig('authorName', this.initialConfig)
       }];
 
       return this.prompt(prompts);
@@ -100,7 +100,7 @@ module.exports = Generator.extend({
 
   },
 
-  writing: function() {
+  writing: function () {
     this.props = this.config.getAll();
     this.props.ngModuleFilename = _.lowerFirst(`${this.props.ngModuleName.replace(/Module$/, '')}.module.ts`);
     const folders = ['demo', 'test'];
@@ -161,7 +161,7 @@ module.exports = Generator.extend({
 
   },
 
-  install: function() {
+  install: function () {
     this.log('Make sure to now create the gh-pages branch:');
     this.log('`git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master`');
     return isInstalled('yarn').then(exists => {
@@ -171,5 +171,11 @@ module.exports = Generator.extend({
         this.npmInstall();
       }
     });
+  },
+  _configInfo: function (config) {
+    this.log('Using Config: ');
+    this.log(JSON.stringify(config, null, 2));
+    this.log(`The config is stored in ${chalk.green('.yo-rc.json')} and override the prompts`);
+    this.log('You can edit then or delete to re-run the generator');
   }
 });
