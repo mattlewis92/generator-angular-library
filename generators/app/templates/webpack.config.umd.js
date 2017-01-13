@@ -1,10 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: {
+    '<%- npmModuleName %>.umd': './src/index.ts',
+    '<%- npmModuleName %>.umd.min': './src/index.ts',
+  },
   output: {
-    path: path.join(__dirname, 'dist', 'umd'),
-    filename: './<%- npmModuleName %>.js',
+    path: path.join(__dirname, 'dist', 'bundles'),
+    filename: '[name].js',
     libraryTarget: 'umd',
     library: '<%- moduleGlobal %>'
   },
@@ -33,5 +37,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.ts', '.js']
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true,
+      compress: { warnings: false }
+    })
+  ]
 };

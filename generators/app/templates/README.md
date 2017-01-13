@@ -56,7 +56,7 @@ You may also find it useful to view the [demo source](https://github.com/<%- git
 
 ### Usage without a module bundler
 ```
-<script src="node_modules/dist/umd/<%- npmModuleName %>/<%- npmModuleName %>.js"></script>
+<script src="node_modules/<%- npmModuleName %>/bundles/<%- npmModuleName %>.umd.js"></script>
 <script>
     // everything is exported <%- moduleGlobal %> namespace
 </script>
