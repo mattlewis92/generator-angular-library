@@ -20,7 +20,9 @@
     "gh-pages": "git checkout gh-pages && git merge master --no-edit && npm run build:demo && npm run typedoc && git add . && git commit -m 'chore: build demo and docs' && git push && git checkout master",
     "copyfiles": "cp package.json LICENSE README.md dist/",
     "prerelease": "npm test",
-    "release": "git add package.json && git commit -m 'chore: bump version number' && standard-version --first-release && git push --follow-tags origin master && npm run build:dist && npm run copyfiles && cd dist/ && npm publish",
+    "release:git": "git add package.json && git commit -m 'chore: bump version number' && standard-version --first-release && git push --follow-tags origin master",
+    "release:npm": "npm run build:dist && npm run copyfiles && cd dist/;npm publish",
+    "release":"npm run release:git && npm run release:npm",
     "postrelease": "npm run build:clean && npm run gh-pages",
     "commitmsg": "validate-commit-msg"
   },
