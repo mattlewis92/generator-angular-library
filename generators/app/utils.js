@@ -1,12 +1,11 @@
 'use strict';
 
 module.exports = {
-  noConfig: function (name, configs) {
+  isEmpty: function (value) {
     return function () {
       return new Promise(function (resolve) {
-        var value = configs[name];
         resolve(value === null || value === undefined);
       });
     };
-  }
+  },
 };
