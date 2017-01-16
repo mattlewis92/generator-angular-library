@@ -34,19 +34,19 @@ module.exports = Generator.extend({
         message: 'What is the github project organisation or username?',
         validate: required,
         default: githubUsername,
-        when: isEmpty(this.initialConfig['githubUsername'])
+        when: isEmpty(this.initialConfig.githubUsername)
       }, {
         type: 'input',
         name: 'githubRepoName',
         message: 'What is the github repository name?',
         default: this.appname.replace(/ /g, '-'),
-        when: isEmpty(this.initialConfig['githubRepoName'])
+        when: isEmpty(this.initialConfig.githubRepoName)
       }, {
         type: 'input',
         name: 'npmModuleName',
         message: 'What is the npm module name?',
         default: this.appname.replace(/ /g, '-'),
-        when: isEmpty(this.initialConfig['npmModuleName'])
+        when: isEmpty(this.initialConfig.npmModuleName)
 
       }, {
         type: 'input',
@@ -56,7 +56,7 @@ module.exports = Generator.extend({
         default(answers) {
           return _.camelCase(answers.npmModuleName);
         },
-        when: isEmpty(this.initialConfig['moduleGlobal'])
+        when: isEmpty(this.initialConfig.moduleGlobal)
       }, {
         type: 'input',
         name: 'ngModuleName',
@@ -65,30 +65,30 @@ module.exports = Generator.extend({
         default(answers) {
           return _.upperFirst(_.camelCase(answers.npmModuleName)) + 'Module';
         },
-        when: isEmpty(this.initialConfig['ngModuleName'])
+        when: isEmpty(this.initialConfig.ngModuleName)
       }, {
         type: 'input',
         name: 'selectorPrefix',
         message: 'What should the component / directive selector prefix be',
         validate: required,
-        when: isEmpty(this.initialConfig['selectorPrefix'])
+        when: isEmpty(this.initialConfig.selectorPrefix)
       }, {
         type: 'input',
         name: 'projectTitle',
         message: 'What is the human readable project title?',
         default: this.determineAppname(),
-        when: isEmpty(this.initialConfig['projectTitle'])
+        when: isEmpty(this.initialConfig.projectTitle)
       }, {
         type: 'input',
         name: 'projectDescription',
         message: 'What is the project description?',
-        when: isEmpty(this.initialConfig['projectDescription'])
+        when: isEmpty(this.initialConfig.projectDescription)
       }, {
         type: 'input',
         name: 'authorName',
         message: 'What is the author name?',
         default: this.user.git.name(),
-        when: isEmpty(this.initialConfig['authorName'])
+        when: isEmpty(this.initialConfig.authorName)
       }];
 
       return this.prompt(prompts);

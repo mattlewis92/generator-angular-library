@@ -7,5 +7,5 @@ module.exports = {
         resolve(value === null || value === undefined);
       });
     };
-  },
+  }
 };
