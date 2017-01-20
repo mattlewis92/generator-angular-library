@@ -42,7 +42,7 @@ Once you've scaffolded out your library, everything is then controlled by npm sc
 * Build your library in [typescript](https://www.typescriptlang.org/) with [webpack](https://webpack.github.io/)
 * Run your tests with [karma](http://karma-runner.github.io/)
 * Auto-lint your library with [tslint](https://palantir.github.io/tslint/)
-* Automatic documentation generated with [typedoc](http://typedoc.io/)
+* Automatic documentation generated with [compodoc](https://compodoc.github.io/compodoc/)
 * Publish your library to [npm](https://www.npmjs.com/)
 
 ## License

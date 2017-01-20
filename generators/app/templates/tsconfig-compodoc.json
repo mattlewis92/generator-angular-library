@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "demo",
+    "test",
+    "karma.conf.ts",
+    "webpack.config.ts",
+    "webpack.config.umd.ts"
+  ]
+}

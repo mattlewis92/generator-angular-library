@@ -63,7 +63,7 @@ You may also find it useful to view the [demo source](https://github.com/<%- git
 ```
 
 ## Documentation
-All documentation is auto-generated from the source via typedoc and can be viewed here:
+All documentation is auto-generated from the source via [compodoc](https://compodoc.github.io/compodoc/) and can be viewed here:
 https://<%- githubUsername %>.github.io/<%- githubRepoName %>/docs/
 
 ## Development
