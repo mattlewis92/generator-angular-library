@@ -39,11 +39,25 @@ module.exports = Generator.extend({
         message: 'What is the npm module name?',
         default: this.appname.replace(/ /g, '-')
       }, {
+        type: 'confirm',
+        name: 'allowNg2InModuleName',
+        message: 'Starting angular module names with ng2 or angular2 is not advised as angular now follows semver. It is recommended that you start your library name with just angular. Would you like to continue anyway?',
+        default: false,
+        when(answers) {
+          return answers.npmModuleName.startsWith('ng2') || answers.npmModuleName.startsWith('angular2');
+        }
+      }, {
         type: 'input',
         name: 'moduleGlobal',
         message: 'What should the module be exported as on the window for users not using module bundlers?',
         validate: required,
-        default(answers) {
+        default: (answers) => {
+
+          if (answers.allowNg2InModuleName === false) {
+            this.log('Please start again with a new package name that doesnt start with ng2 or angular2.');
+            process.exit();
+          }
+
           return _.camelCase(answers.npmModuleName);
         }
       }, {
