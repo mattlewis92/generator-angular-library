@@ -1,5 +1,6 @@
 # <%- projectTitle %>
 [![Build Status](https://travis-ci.org/<%- githubUsername %>/<%- githubRepoName %>.svg?branch=master)](https://travis-ci.org/<%- githubUsername %>/<%- githubRepoName %>)
+[![codecov](https://codecov.io/gh/<%- githubUsername %>/<%- githubRepoName %>/branch/master/graph/badge.svg)](https://codecov.io/gh/<%- githubUsername %>/<%- githubRepoName %>)
 [![npm version](https://badge.fury.io/js/<%- npmModuleName %>.svg)](http://badge.fury.io/js/<%- npmModuleName %>)
 [![devDependency Status](https://david-dm.org/<%- githubUsername %>/<%- githubRepoName %>/dev-status.svg)](https://david-dm.org/<%- githubUsername %>/<%- githubRepoName %>?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/<%- githubUsername %>/<%- githubRepoName %>.svg)](https://github.com/<%- githubUsername %>/<%- githubRepoName %>/issues)
