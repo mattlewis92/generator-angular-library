@@ -112,15 +112,15 @@ module.exports = Generator.extend({
     const files = [
       '.editorconfig',
       '.travis.yml',
-      'karma.conf.js',
+      'karma.conf.ts',
       'LICENSE',
       'README.md',
       'tsconfig.json',
       'tsconfig-ngc.json',
       'tsconfig-compodoc.json',
       'tslint.json',
-      'webpack.config.umd.js',
-      'webpack.config.js',
+      'webpack.config.umd.ts',
+      'webpack.config.ts',
       'src/helloWorld.component.ts',
       'src/index.ts'
     ];

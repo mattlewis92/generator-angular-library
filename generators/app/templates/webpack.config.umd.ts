@@ -1,10 +1,10 @@
-const path = require('path');
+import * as path from 'path';
 const webpack = require('webpack');
 
-module.exports = {
+export default {
   entry: {
-    '<%- npmModuleName %>.umd': './src/index.ts',
-    '<%- npmModuleName %>.umd.min': './src/index.ts',
+    '<%- npmModuleName %>.umd': path.join(__dirname, 'src', 'index.ts'),
+    '<%- npmModuleName %>.umd.min': path.join(__dirname, 'src', 'index.ts'),
   },
   output: {
     path: path.join(__dirname, 'dist', 'bundles'),
@@ -28,21 +28,28 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
-    preLoaders: [{
-      test: /\.ts$/, loader: 'tslint-loader?emitErrors=true&failOnHint=true', exclude: /node_modules/
-    }],
-    loaders: [{
-      test: /\.ts$/, loader: 'awesome-typescript-loader', exclude: /node_modules/
+    rules: [{
+      test: /\.ts$/,
+      loader: 'tslint-loader?emitErrors=true&failOnHint=true',
+      exclude: /node_modules/,
+      enforce: 'pre'
+    }, {
+      test: /\.ts$/,
+      loader: 'awesome-typescript-loader',
+      exclude: /node_modules/
     }]
   },
   resolve: {
-    extensions: ['', '.ts', '.js']
+    extensions: ['.ts', '.js']
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
-      minimize: true,
       compress: { warnings: false }
-    })
+    }),
+    new webpack.ContextReplacementPlugin(
+      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+      path.join(__dirname, 'src')
+    )
   ]
 };

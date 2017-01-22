@@ -1,8 +1,8 @@
-'use strict';
+import * as webpack from 'webpack';
+import * as path from 'path';
 
-const webpack = require('webpack');
+module.exports = config => {
 
-module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -25,36 +25,50 @@ module.exports = function(config) {
 
     webpack: {
       resolve: {
-        extensions: ['', '.ts', '.js'],
+        extensions: ['.ts', '.js'],
         alias: {
           sinon: 'sinon/pkg/sinon'
         }
       },
       module: {
-        preLoaders: [{
-          test: /\.ts$/, loader: 'tslint-loader', exclude: /node_modules/
-        }],
-        loaders: [{
-          test: /\.ts$/, loader: 'awesome-typescript-loader', exclude: /node_modules/
+        rules: [{
+          test: /\.ts$/,
+          loader: 'tslint-loader',
+          exclude: /node_modules/,
+          enforce: 'pre'
         }, {
-          test: /sinon.js$/, loader: 'imports-loader?define=>false,require=>false'
-        }],
-        postLoaders: [{
+          test: /\.ts$/,
+          loader: 'awesome-typescript-loader',
+          exclude: /node_modules/
+        }, {
+          test: /sinon.js$/,
+          loader: 'imports-loader?define=>false,require=>false'
+        }, {
           test: /src\/.+\.ts$/,
-          exclude: /(test|node_modules)/,
-          loader: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true'
+          exclude: /(node_modules|\.spec\.ts$)/,
+          loader: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true',
+          enforce: 'post'
         }]
-      },
-      tslint: {
-        emitErrors: config.singleRun,
-        failOnHint: false
       },
       plugins: [
         new webpack.SourceMapDevToolPlugin({
           filename: null,
           test: /\.(ts|js)($|\?)/i
-        })
-      ].concat(config.singleRun ? [new webpack.NoErrorsPlugin()] : [])
+        }),
+        new webpack.LoaderOptionsPlugin({
+          options: {
+            tslint: {
+              emitErrors: config.singleRun,
+              failOnHint: false
+            }
+          }
+        }),
+        new webpack.ContextReplacementPlugin(
+          /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+          path.join(__dirname, 'src')
+        ),
+        ...(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : [])
+      ]
     },
 
     remapIstanbulReporter: {
@@ -78,4 +92,5 @@ module.exports = function(config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['PhantomJS']
   });
+
 };
