@@ -4,7 +4,7 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const _ = require('lodash');
-const isInstalled = require('is-installed');
+const caniuseYarn = require('@danielbayerlein/caniuse-yarn')();
 
 module.exports = Generator.extend({
   prompting: function() {
@@ -161,12 +161,10 @@ module.exports = Generator.extend({
   install: function() {
     this.log('Make sure to now create the gh-pages branch:');
     this.log('`git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master`');
-    return isInstalled('yarn').then(exists => {
-      if (exists) {
-        this.yarnInstall();
-      } else {
-        this.npmInstall();
-      }
-    });
+    if (caniuseYarn) {
+      this.yarnInstall();
+    } else {
+      this.npmInstall();
+    }
   }
 });
