@@ -51,7 +51,7 @@ module.exports = Generator.extend({
         name: 'moduleGlobal',
         message: 'What should the module be exported as on the window for users not using module bundlers?',
         validate: required,
-        default: (answers) => {
+        default: answers => {
 
           if (answers.allowNg2InModuleName === false) {
             this.log('Please start again with a new package name that doesnt start with ng2 or angular2.');
