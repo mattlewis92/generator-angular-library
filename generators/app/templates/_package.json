@@ -60,7 +60,7 @@
     "codecov": "^1.0.1",
     "codelyzer": "2.0.0-beta.4",
     "commitizen": "^2.8.1",
-    "compodoc": "^0.0.35",
+    "compodoc": "^0.0.36",
     "concurrently": "^3.0.0",
     "conventional-changelog": "^1.1.0",
     "conventional-changelog-cli": "^1.2.0",
