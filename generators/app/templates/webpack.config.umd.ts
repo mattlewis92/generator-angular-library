@@ -45,7 +45,7 @@ export default {
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
-      compress: { warnings: false }
+      sourceMap: true
     }),
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
