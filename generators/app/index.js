@@ -43,7 +43,7 @@ module.exports = Generator.extend({
         name: 'allowNg2InModuleName',
         message: 'Starting angular module names with ng2 or angular2 is not advised as angular now follows semver. It is recommended that you start your library name with just angular. Would you like to continue anyway?',
         default: false,
-        when(answers) {
+        when: function(answers) {
           return answers.npmModuleName.startsWith('ng2') || answers.npmModuleName.startsWith('angular2');
         }
       }, {
@@ -65,7 +65,7 @@ module.exports = Generator.extend({
         name: 'ngModuleName',
         message: 'What should the NgModule name be?',
         validate: required,
-        default(answers) {
+        default: function(answers) {
           return _.upperFirst(_.camelCase(answers.npmModuleName)) + 'Module';
         }
       }, {
