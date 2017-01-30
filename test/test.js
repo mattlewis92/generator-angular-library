@@ -1,3 +1,5 @@
+'use strict';
+
 const os = require('os');
 const inquirerTest = require('inquirer-test');
 const shelljs = require('shelljs');
