@@ -162,7 +162,7 @@ module.exports = Generator.extend({
     this.log('Make sure to now create the gh-pages branch:');
     this.log('`git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master`');
     if (caniuseYarn) {
-      this.yarnInstall();
+      this.yarnInstall([], {ignoreEngines: true});
     } else {
       this.npmInstall();
     }
