@@ -40,6 +40,7 @@
   "scripts": {
     "lint": "eslint generators",
     "preversion": "npm run lint",
-    "postversion": "npm publish"
+    "postversion": "npm publish",
+    "test": "npm run lint"
   }
 }
