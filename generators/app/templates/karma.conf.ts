@@ -1,7 +1,7 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
 
-module.exports = config => {
+export default config => {
 
   config.set({
 
