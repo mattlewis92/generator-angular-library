@@ -24,7 +24,10 @@
   },
   "devDependencies": {
     "eslint": "^3.5.0",
-    "eslint-config-xo-space": "^0.15.0"
+    "eslint-config-xo-space": "^0.15.0",
+    "inquirer-test": "^1.0.5",
+    "shelljs": "^0.7.6",
+    "yo": "^1.8.5"
   },
   "eslintConfig": {
     "extends": "xo-space",
@@ -41,6 +44,7 @@
     "lint": "eslint generators",
     "preversion": "npm run lint",
     "postversion": "npm publish",
-    "test": "npm run lint"
+    "pretest": "npm run lint",
+    "test": "node ./test/test.js"
   }
 }
