@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 const _ = require('lodash');
 const caniuseYarn = require('@danielbayerlein/caniuse-yarn')();
+const shelljs = require('shelljs');
 
 module.exports = Generator.extend({
   prompting: function() {
@@ -159,8 +160,8 @@ module.exports = Generator.extend({
   },
 
   install: function() {
-    this.log('Make sure to now create the gh-pages branch:');
-    this.log('`git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master`');
+    this.log('Creating gh-pages branch');
+    shelljs.exec('git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master');
     if (caniuseYarn) {
       this.yarnInstall([], {ignoreEngines: true});
     } else {
