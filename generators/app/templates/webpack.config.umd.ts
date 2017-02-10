@@ -1,5 +1,7 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
+const angularExternals = require('webpack-angular-externals');
+const rxjsExternals = require('webpack-rxjs-externals');
 
 export default {
   entry: {
@@ -12,20 +14,10 @@ export default {
     libraryTarget: 'umd',
     library: '<%- moduleGlobal %>'
   },
-  externals: {
-    '@angular/core': {
-      root: ['ng', 'core'],
-      commonjs: '@angular/core',
-      commonjs2: '@angular/core',
-      amd: '@angular/core'
-    },
-    '@angular/common': {
-      root: ['ng', 'common'],
-      commonjs: '@angular/common',
-      commonjs2: '@angular/common',
-      amd: '@angular/common'
-    }
-  },
+  externals: [
+    angularExternals(),
+    rxjsExternals()
+  ],
   devtool: 'source-map',
   module: {
     rules: [{
