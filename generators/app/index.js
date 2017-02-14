@@ -4,8 +4,9 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const _ = require('lodash');
-const isInstalled = require('is-installed');
-var isEmpty = require('./utils').isEmpty;
+const caniuseYarn = require('@danielbayerlein/caniuse-yarn')();
+const shelljs = require('shelljs');
+const isEmpty = require('./utils').isEmpty;
 
 module.exports = Generator.extend({
 
@@ -49,11 +50,25 @@ module.exports = Generator.extend({
         when: isEmpty(this.initialConfig.npmModuleName)
 
       }, {
+        type: 'confirm',
+        name: 'allowNg2InModuleName',
+        message: 'Starting angular module names with ng2 or angular2 is not advised as angular now follows semver. It is recommended that you start your library name with just angular. Would you like to continue anyway?',
+        default: false,
+        when: function(answers) {
+          return answers.npmModuleName.startsWith('ng2') || answers.npmModuleName.startsWith('angular2');
+        }
+      }, {
         type: 'input',
         name: 'moduleGlobal',
         message: 'What should the module be exported as on the window for users not using module bundlers?',
         validate: required,
-        default(answers) {
+        default: answers => {
+
+          if (answers.allowNg2InModuleName === false) {
+            this.log('Please start again with a new package name that doesnt start with ng2 or angular2.');
+            process.exit();
+          }
+
           return _.camelCase(answers.npmModuleName);
         },
         when: isEmpty(this.initialConfig.moduleGlobal)
@@ -62,7 +77,7 @@ module.exports = Generator.extend({
         name: 'ngModuleName',
         message: 'What should the NgModule name be?',
         validate: required,
-        default(answers) {
+        default: function(answers) {
           return _.upperFirst(_.camelCase(answers.npmModuleName)) + 'Module';
         },
         when: isEmpty(this.initialConfig.ngModuleName)
@@ -115,15 +130,15 @@ module.exports = Generator.extend({
     const files = [
       '.editorconfig',
       '.travis.yml',
-      'karma.conf.js',
+      'karma.conf.ts',
       'LICENSE',
       'README.md',
       'tsconfig.json',
       'tsconfig-ngc.json',
+      'tsconfig-compodoc.json',
       'tslint.json',
-      'typedoc.json',
-      'webpack.config.umd.js',
-      'webpack.config.js',
+      'webpack.config.umd.ts',
+      'webpack.config.ts',
       'src/helloWorld.component.ts',
       'src/index.ts'
     ];
@@ -161,16 +176,15 @@ module.exports = Generator.extend({
 
   },
 
-  install: function () {
-    this.log('Make sure to now create the gh-pages branch:');
-    this.log('`git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master`');
-    return isInstalled('yarn').then(exists => {
-      if (exists) {
-        this.yarnInstall();
-      } else {
-        this.npmInstall();
-      }
-    });
+  install: function() {
+    this.log('Creating gh-pages branch');
+    shelljs.exec('git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master');
+    if (caniuseYarn) {
+      this.yarnInstall([], {ignoreEngines: true});
+    } else {
+      this.npmInstall();
+    }
+
   },
   _configInfo: function (config) {
     this.log('Using Config: ');

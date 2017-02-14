@@ -9,8 +9,12 @@
     "removeComments": false,
     "noImplicitAny": false
   },
+  "include": [
+    "src/**/*",
+    "test/**/*",
+    "demos/**/*"
+  ],
   "exclude": [
     "node_modules"
-  ],
-  "compileOnSave": false
+  ]
 }

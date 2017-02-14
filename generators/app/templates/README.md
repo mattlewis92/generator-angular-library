@@ -1,5 +1,6 @@
 # <%- projectTitle %>
 [![Build Status](https://travis-ci.org/<%- githubUsername %>/<%- githubRepoName %>.svg?branch=master)](https://travis-ci.org/<%- githubUsername %>/<%- githubRepoName %>)
+[![codecov](https://codecov.io/gh/<%- githubUsername %>/<%- githubRepoName %>/branch/master/graph/badge.svg)](https://codecov.io/gh/<%- githubUsername %>/<%- githubRepoName %>)
 [![npm version](https://badge.fury.io/js/<%- npmModuleName %>.svg)](http://badge.fury.io/js/<%- npmModuleName %>)
 [![devDependency Status](https://david-dm.org/<%- githubUsername %>/<%- githubRepoName %>/dev-status.svg)](https://david-dm.org/<%- githubUsername %>/<%- githubRepoName %>?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/<%- githubUsername %>/<%- githubRepoName %>.svg)](https://github.com/<%- githubUsername %>/<%- githubRepoName %>/issues)
@@ -56,14 +57,14 @@ You may also find it useful to view the [demo source](https://github.com/<%- git
 
 ### Usage without a module bundler
 ```
-<script src="node_modules/dist/umd/<%- npmModuleName %>/<%- npmModuleName %>.js"></script>
+<script src="node_modules/<%- npmModuleName %>/bundles/<%- npmModuleName %>.umd.js"></script>
 <script>
     // everything is exported <%- moduleGlobal %> namespace
 </script>
 ```
 
 ## Documentation
-All documentation is auto-generated from the source via typedoc and can be viewed here:
+All documentation is auto-generated from the source via [compodoc](https://compodoc.github.io/compodoc/) and can be viewed here:
 https://<%- githubUsername %>.github.io/<%- githubRepoName %>/docs/
 
 ## Development

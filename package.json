@@ -16,9 +16,10 @@
     "yeoman-generator"
   ],
   "dependencies": {
+    "@danielbayerlein/caniuse-yarn": "^1.1.0",
     "chalk": "^1.0.0",
-    "is-installed": "^2.0.1",
     "lodash": "^4.13.1",
+    "shelljs": "^0.7.6",
     "yeoman-generator": "^1.0.1",
     "yosay": "^1.0.0"
   },
@@ -27,7 +28,9 @@
     "chai-as-promised": "^6.0.0",
     "eslint": "^3.5.0",
     "eslint-config-xo-space": "^0.15.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "inquirer-test": "^1.0.5",
+    "yo": "^1.8.5"
   },
   "eslintConfig": {
     "extends": "xo-space",
@@ -45,6 +48,7 @@
     "preversion": "npm run lint",
     "postversion": "npm publish",
     "test": "mocha",
-    "test:watch": "mocha -w"
+    "test:watch": "mocha -w",
+    "pretest": "npm run lint"
   }
 }

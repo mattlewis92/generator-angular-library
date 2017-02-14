@@ -1,4 +1,4 @@
-# generator-angular-library
+# generator-angular-library [![Build Status](https://travis-ci.org/mattlewis92/generator-angular-library.svg?branch=master)](https://travis-ci.org/mattlewis92/generator-angular-library)
 >Simply scaffold your angular 2.0+ library with this yeoman generator and start writing code without having to setup any tedious boilerplate tooling. 
 
 Everything is pre-configured, from a local development server with unit tests, through to publishing your library to npm and a demo to github pages. Hopefully the [angular-cli](https://cli.angular.io/) project will one day make this generator obsolete, however currently the angular-cli is geared towards creating a full web-app rather than just a single re-usable npm library.
@@ -42,7 +42,7 @@ Once you've scaffolded out your library, everything is then controlled by npm sc
 * Build your library in [typescript](https://www.typescriptlang.org/) with [webpack](https://webpack.github.io/)
 * Run your tests with [karma](http://karma-runner.github.io/)
 * Auto-lint your library with [tslint](https://palantir.github.io/tslint/)
-* Automatic documentation generated with [typedoc](http://typedoc.io/)
+* Automatic documentation generated with [compodoc](https://compodoc.github.io/compodoc/)
 * Publish your library to [npm](https://www.npmjs.com/)
 
 ## License
