@@ -21,6 +21,7 @@
     "lodash": "^4.13.1",
     "shelljs": "^0.7.6",
     "yeoman-generator": "^1.0.1",
+    "is-null-like": "^1.0.3",
     "yosay": "^1.0.0"
   },
   "devDependencies": {
@@ -29,7 +30,6 @@
     "eslint": "^3.5.0",
     "eslint-config-xo-space": "^0.15.0",
     "inquirer-test": "^1.0.5",
-    "is-null-like": "^1.0.3",
     "mocha": "^3.2.0",
     "yo": "^1.8.5"
   },
