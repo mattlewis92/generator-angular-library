@@ -6,7 +6,7 @@ const yosay = require('yosay');
 const _ = require('lodash');
 const caniuseYarn = require('@danielbayerlein/caniuse-yarn')();
 const shelljs = require('shelljs');
-const isEmpty = require('./utils').isEmpty;
+const isEmpty = require('is-null-like');
 
 module.exports = Generator.extend({
 

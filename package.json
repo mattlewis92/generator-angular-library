@@ -28,8 +28,9 @@
     "chai-as-promised": "^6.0.0",
     "eslint": "^3.5.0",
     "eslint-config-xo-space": "^0.15.0",
-    "mocha": "^3.2.0",
     "inquirer-test": "^1.0.5",
+    "is-null-like": "^1.0.3",
+    "mocha": "^3.2.0",
     "yo": "^1.8.5"
   },
   "eslintConfig": {
