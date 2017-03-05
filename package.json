@@ -21,12 +21,16 @@
     "lodash": "^4.13.1",
     "shelljs": "^0.7.6",
     "yeoman-generator": "^1.0.1",
+    "is-null-like": "^1.0.3",
     "yosay": "^1.0.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
     "eslint": "^3.5.0",
     "eslint-config-xo-space": "^0.15.0",
     "inquirer-test": "^1.0.5",
+    "mocha": "^3.2.0",
     "yo": "^1.8.5"
   },
   "eslintConfig": {
@@ -44,7 +48,8 @@
     "lint": "eslint generators",
     "preversion": "npm run lint",
     "postversion": "npm publish",
-    "pretest": "npm run lint",
-    "test": "node ./test/test.js"
+    "test": "mocha --timeout 120000",
+    "test:watch": "npm test -- --watch",
+    "pretest": "npm run lint"
   }
 }
