@@ -17,7 +17,7 @@ module.exports = Generator.extend({
   prompting: function () {
 
     this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular-library')} generator!`));
-    this.configInfo(this.initialConfig);
+    this.logConfigInfo(this.initialConfig);
     const required = val => !!val;
 
     const githubUsernamePromise = new Promise(resolve => {
@@ -48,14 +48,14 @@ module.exports = Generator.extend({
         message: 'What is the npm module name?',
         default: this.appname.replace(/ /g, '-'),
         when: isEmpty(this.initialConfig.npmModuleName)
-
       }, {
         type: 'confirm',
         name: 'allowNg2InModuleName',
         message: 'Starting angular module names with ng2 or angular2 is not advised as angular now follows semver. It is recommended that you start your library name with just angular. Would you like to continue anyway?',
         default: false,
-        when: function(answers) {
-          return answers.npmModuleName.startsWith('ng2') || answers.npmModuleName.startsWith('angular2');
+        when: answers => {
+          const npmModuleName = this.initialConfig.npmModuleName || answers.npmModuleName;
+          return npmModuleName.startsWith('ng2') || npmModuleName.startsWith('angular2');
         }
       }, {
         type: 'input',
@@ -69,7 +69,8 @@ module.exports = Generator.extend({
             process.exit();
           }
 
-          return _.camelCase(answers.npmModuleName);
+          const npmModuleName = this.initialConfig.npmModuleName || answers.npmModuleName;
+          return _.camelCase(npmModuleName);
         },
         when: isEmpty(this.initialConfig.moduleGlobal)
       }, {
@@ -77,8 +78,9 @@ module.exports = Generator.extend({
         name: 'ngModuleName',
         message: 'What should the NgModule name be?',
         validate: required,
-        default: function(answers) {
-          return _.upperFirst(_.camelCase(answers.npmModuleName)) + 'Module';
+        default: answers => {
+          const npmModuleName = this.initialConfig.npmModuleName || answers.npmModuleName;
+          return _.upperFirst(_.camelCase(npmModuleName)) + 'Module';
         },
         when: isEmpty(this.initialConfig.ngModuleName)
       }, {
@@ -187,11 +189,13 @@ module.exports = Generator.extend({
 
   },
 
-  configInfo: function (config) {
-    this.log('Using config: ');
-    this.log(JSON.stringify(config, null, 2));
-    this.log(`The config is stored in ${chalk.green('.yo-rc.json')} and will override the prompts`);
-    this.log('You can edit them or delete the config file to re-run the generator');
+  logConfigInfo: function (config) {
+    if (config && Object.keys(config).length > 0) {
+      this.log('Using config: ');
+      this.log(JSON.stringify(config, null, 2));
+      this.log(`The config is stored in ${chalk.green('.yo-rc.json')} and will override the prompts`);
+      this.log('You can edit them or delete the config file to re-run the generator');
+    }
   }
 
 });
