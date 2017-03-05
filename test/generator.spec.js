@@ -8,9 +8,8 @@ const cliPath = `${__dirname}/../node_modules/.bin/yo`;
 const tmpDir = `${os.tmpdir()}/generator-angular-lib-test`;
 const inquirerTimeout = 1000;
 
-describe('generator', function () {
-  it('should run successfully', function (done) {
-    this.timeout(50000);
+describe('generator', () => {
+  it('should run successfully', () => {
     console.info('Testing generator in', tmpDir);
 
     shelljs.rm('-rf', tmpDir);
@@ -18,7 +17,7 @@ describe('generator', function () {
     shelljs.exec('npm link');
     shelljs.cd(tmpDir);
 
-    const promise = inquirerTest(cliPath, [
+    return inquirerTest(cliPath, [
       inquirerTest.ENTER,
       'mattlewis92',
       inquirerTest.ENTER,
@@ -34,19 +33,13 @@ describe('generator', function () {
       inquirerTest.ENTER,
       inquirerTest.ENTER,
       inquirerTest.ENTER
-    ], inquirerTimeout).then(result => {
-
+    ], inquirerTimeout).then(() => {
       const testResult = shelljs.exec('npm test');
       shelljs.rm('-rf', tmpDir);
       if (testResult.code !== 0) {
-        throw new Error('Generator test failed');
+        return Promise.reject('Generator test failed');
       }
-      done();
-
-    }).catch(err => {
-      throw new Error('Generator test failed', err);
     });
-    return promise;
   });
 });
 

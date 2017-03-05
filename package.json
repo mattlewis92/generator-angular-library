@@ -48,8 +48,8 @@
     "lint": "eslint generators",
     "preversion": "npm run lint",
     "postversion": "npm publish",
-    "test": "mocha",
-    "test:watch": "mocha -w",
+    "test": "mocha --timeout 90000",
+    "test:watch": "npm test -- --watch",
     "pretest": "npm run lint"
   }
 }
