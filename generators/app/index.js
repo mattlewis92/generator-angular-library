@@ -17,7 +17,7 @@ module.exports = Generator.extend({
   prompting: function () {
 
     this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular-library')} generator!`));
-    this._configInfo(this.initialConfig);
+    this.configInfo(this.initialConfig);
     const required = val => !!val;
 
     const githubUsernamePromise = new Promise(resolve => {
@@ -176,7 +176,7 @@ module.exports = Generator.extend({
 
   },
 
-  install: function() {
+  install: function () {
     this.log('Creating gh-pages branch');
     shelljs.exec('git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master');
     if (caniuseYarn) {
@@ -186,10 +186,12 @@ module.exports = Generator.extend({
     }
 
   },
-  _configInfo: function (config) {
-    this.log('Using Config: ');
+
+  configInfo: function (config) {
+    this.log('Using config: ');
     this.log(JSON.stringify(config, null, 2));
-    this.log(`The config is stored in ${chalk.green('.yo-rc.json')} and override the prompts`);
-    this.log('You can edit then or delete to re-run the generator');
+    this.log(`The config is stored in ${chalk.green('.yo-rc.json')} and will override the prompts`);
+    this.log('You can edit them or delete the config file to re-run the generator');
   }
+
 });
