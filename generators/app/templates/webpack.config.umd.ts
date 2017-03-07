@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 const angularExternals = require('webpack-angular-externals');
 const rxjsExternals = require('webpack-rxjs-externals');
+const pkg = require('./package.json');
 
 export default {
   entry: {
@@ -42,6 +43,19 @@ export default {
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
       path.join(__dirname, 'src')
-    )
+    ),
+    new webpack.BannerPlugin({
+      banner: `
+/**
+ * ${pkg.name} - ${pkg.description}
+ * @version v${pkg.version}
+ * @author ${pkg.author}
+ * @link ${pkg.homepage}
+ * @license ${pkg.license}
+ */
+      `.trim(),
+      raw: true,
+      entryOnly: true
+    })
   ]
 };
