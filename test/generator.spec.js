@@ -34,11 +34,18 @@ describe('generator', () => {
       inquirerTest.ENTER,
       inquirerTest.ENTER
     ], inquirerTimeout).then(() => {
-      const testResult = shelljs.exec('npm test');
+
+      const commands = ['npm test', 'npm run build:dist'];
+      const failedCommands = commands
+        .map(command => shelljs.exec(command))
+        .filter(result => result.code !== 0);
+
       shelljs.rm('-rf', tmpDir);
-      if (testResult.code !== 0) {
+
+      if (failedCommands.length > 0) {
         return Promise.reject('Generator test failed');
       }
+
     });
   });
 });
