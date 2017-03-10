@@ -1,6 +1,6 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
-const IS_PROD = process.argv.indexOf('-p') > -1;
+const IS_PROD: boolean = process.argv.indexOf('-p') > -1;
 
 export default {
   devtool: IS_PROD ? 'source-map' : 'eval',
@@ -32,7 +32,7 @@ export default {
     contentBase: 'demo'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    ...(IS_PROD ? [] : [new webpack.HotModuleReplacementPlugin()]),
     new webpack.DefinePlugin({
       ENV: JSON.stringify(IS_PROD ? 'production' : 'development')
     }),
