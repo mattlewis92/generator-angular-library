@@ -3,7 +3,8 @@
     "target": "ES5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "lib": ["es2017", "dom"]
   },
   "include": [
     "src"
