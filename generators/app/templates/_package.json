@@ -21,7 +21,7 @@
     "copyfiles": "cp package.json LICENSE README.md CHANGELOG.md dist/",
     "prerelease": "npm test",
     "release:git": "git add package.json && git commit -m 'chore: bump version number' && standard-version --first-release && git push --follow-tags origin master",
-    "release:npm": "npm run build:dist && npm run copyfiles && cd dist/;npm publish",
+    "release:npm": "npm run build:dist && npm run copyfiles && cd dist/ && npm publish && cd ..",
     "release":"npm run release:git && npm run release:npm",
     "postrelease": "npm run build:clean && npm run gh-pages",
     "commitmsg": "validate-commit-msg",
