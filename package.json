@@ -18,11 +18,11 @@
   "dependencies": {
     "@danielbayerlein/caniuse-yarn": "^1.1.0",
     "chalk": "^1.0.0",
+    "is-null-like": "^1.0.3",
     "lodash": "^4.13.1",
     "shelljs": "^0.7.6",
     "yeoman-generator": "^1.0.1",
-    "is-null-like": "^1.0.3",
-    "yosay": "^1.0.0"
+    "yosay": "^2.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
