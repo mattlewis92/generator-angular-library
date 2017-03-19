@@ -25,10 +25,7 @@ export default config => {
 
     webpack: {
       resolve: {
-        extensions: ['.ts', '.js'],
-        alias: {
-          sinon: 'sinon/pkg/sinon'
-        }
+        extensions: ['.ts', '.js']
       },
       module: {
         rules: [{
@@ -40,9 +37,6 @@ export default config => {
           test: /\.ts$/,
           loader: 'awesome-typescript-loader',
           exclude: /node_modules/
-        }, {
-          test: /sinon.js$/,
-          loader: 'imports-loader?define=>false,require=>false'
         }, {
           test: /src\/.+\.ts$/,
           exclude: /(node_modules|\.spec\.ts$)/,
