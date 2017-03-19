@@ -27,8 +27,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "eslint": "^3.5.0",
-    "eslint-config-xo-space": "^0.15.0",
+    "eslint": "^3.18.0",
+    "eslint-config-xo-space": "^0.16.0",
     "inquirer-test": "^1.0.5",
     "mocha": "^3.2.0",
     "yo": "^1.8.5"
