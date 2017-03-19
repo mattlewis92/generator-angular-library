@@ -17,13 +17,6 @@ Then create your new repo on github, check it out and from the root of the repo 
 yo angular-library
 ```
 
-To generate the demo:
-```bash
-git branch gh-pages
-git push origin gh-pages
-npm run gh-pages
-```
-
 ## Folder structure
 * `src` should hold your libraries components / services / pipes etc. Organise them however you see fit!
 * `test` contains all your libraries test files. Simply suffix the filenames with `.spec.ts` and they will be auto-included and ran
