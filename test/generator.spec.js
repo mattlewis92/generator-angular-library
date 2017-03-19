@@ -35,7 +35,7 @@ describe('generator', () => {
       inquirerTest.ENTER
     ], inquirerTimeout).then(() => {
 
-      const commands = ['npm test', 'npm run build:dist'];
+      const commands = ['npm test'];
       const failedCommands = commands
         .map(command => shelljs.exec(command))
         .filter(result => result.code !== 0);
