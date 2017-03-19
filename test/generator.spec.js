@@ -34,7 +34,6 @@ describe('generator', () => {
       inquirerTest.ENTER,
       inquirerTest.ENTER
     ], inquirerTimeout).then(() => {
-
       const commands = ['npm test', 'npm run build:demo', 'npm run compodoc'];
       const failedCommands = commands
         .map(command => shelljs.exec(command))
@@ -43,9 +42,8 @@ describe('generator', () => {
       shelljs.rm('-rf', tmpDir);
 
       if (failedCommands.length > 0) {
-        return Promise.reject('Generator test failed');
+        return Promise.reject(new Error('Generator test failed'));
       }
-
     });
   });
 });

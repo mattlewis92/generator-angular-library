@@ -15,15 +15,14 @@ module.exports = Generator.extend({
   },
 
   prompting: function () {
-
     this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular-library')} generator!`));
     this.logConfigInfo(this.initialConfig);
-    const required = val => !!val;
+    const required = val => Boolean(val);
 
     const githubUsernamePromise = new Promise(resolve => {
       try {
-        this.user.github.username((err, username) => resolve(username));
-      } catch (e) {
+        this.user.github.username((err, username) => resolve(username)); // eslint-disable-line handle-callback-err
+      } catch (err) {
         resolve('');
       }
     });
@@ -63,10 +62,9 @@ module.exports = Generator.extend({
         message: 'What should the module be exported as on the window for users not using module bundlers?',
         validate: required,
         default: answers => {
-
           if (answers.allowNg2InModuleName === false) {
             this.log('Please start again with a new package name that doesnt start with ng2 or angular2.');
-            process.exit();
+            process.exit(); // eslint-disable-line unicorn/no-process-exit
           }
 
           const npmModuleName = this.initialConfig.npmModuleName || answers.npmModuleName;
@@ -109,12 +107,10 @@ module.exports = Generator.extend({
       }];
 
       return this.prompt(prompts);
-
     }).then(props => {
       this.config.set(props);
       this.config.save();
     });
-
   },
 
   writing: function () {
@@ -175,7 +171,6 @@ module.exports = Generator.extend({
       this.destinationPath('src/' + this.props.ngModuleFilename),
       this.props
     );
-
   },
 
   install: function () {
@@ -186,7 +181,6 @@ module.exports = Generator.extend({
     } else {
       this.npmInstall();
     }
-
   },
 
   logConfigInfo: function (config) {

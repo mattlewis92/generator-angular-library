@@ -27,29 +27,29 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "eslint": "^3.18.0",
-    "eslint-config-xo-space": "^0.16.0",
     "inquirer-test": "^1.0.5",
     "mocha": "^3.2.0",
+    "xo": "^0.18.0",
     "yo": "^1.8.5"
-  },
-  "eslintConfig": {
-    "extends": "xo-space",
-    "rules": {
-      "space-before-function-paren": 0,
-      "padded-blocks": 0,
-      "no-implicit-coercion": 0,
-      "handle-callback-err": 0
-    }
   },
   "repository": "git@github.com:mattlewis92/generator-angular-library.git",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint generators",
+    "lint": "xo",
     "preversion": "npm test",
     "postversion": "npm publish",
     "test": "mocha --timeout 160000",
     "test:watch": "npm test -- --watch",
     "pretest": "npm run lint"
+  },
+  "xo": {
+    "space": true,
+    "envs": [
+      "node",
+      "mocha"
+    ],
+    "rules": {
+      "object-shorthand": "off"
+    }
   }
 }
