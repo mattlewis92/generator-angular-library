@@ -8,7 +8,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/<%- githubUsername %>/<%- githubRepoName %>/master/LICENSE)
 
 ## Demo
-https://<%- githubUsername %>.github.io/<%- githubRepoName %>/demo/
+https://<%- githubUsername %>.github.io/<%- githubRepoName %>/
 
 ## Table of contents
 
