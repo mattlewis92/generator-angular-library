@@ -50,7 +50,7 @@
     "@types/chai": "^3.4.30",
     "@types/html-webpack-plugin": "^2.11.2",
     "@types/jasmine": "2.2.33",
-    "@types/node": "7.0.0",
+    "@types/node": "^7.0.0",
     "@types/sinon": "^1.16.27",
     "@types/sinon-chai": "^2.7.26",
     "@types/webpack": "^2.2.8",
@@ -70,7 +70,7 @@
     "istanbul-instrumenter-loader": "^2.0.0",
     "jasmine-core": "^2.5.0",
     "karma": "^1.4.1",
-    "karma-coverage-istanbul-reporter": "^0.3.0",
+    "karma-coverage-istanbul-reporter": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.7",
@@ -80,7 +80,7 @@
     "sinon": "^2.0.0",
     "sinon-chai": "^2.8.0",
     "standard-version": "^4.0.0",
-    "ts-node": "^2.0.0",
+    "ts-node": "^3.0.0",
     "tslint": "^4.0.2",
     "tslint-loader": "^3.3.0",
     "typescript": "~2.0.3",
@@ -89,7 +89,7 @@
     "webpack-angular-externals": "^1.0.0",
     "webpack-dev-server": "^2.2.0",
     "webpack-rxjs-externals": "^1.0.0",
-    "zone.js": "^0.7.4"
+    "zone.js": "^0.8.4"
   },
   "peerDependencies": {
     "@angular/core": "^2.0.0"
