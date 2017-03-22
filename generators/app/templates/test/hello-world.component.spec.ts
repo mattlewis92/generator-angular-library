@@ -4,13 +4,17 @@ import {
   TestBed
 } from '@angular/core/testing';
 import { expect } from 'chai';
-import { HelloWorldComponent } from './../src/helloWorld.component';
+import { HelloWorldComponent } from '../src/hello-world.component';
 import { <%- ngModuleName %> } from '../src';
 
 describe('<%- selectorPrefix %>-hello-world component', () => {
 
   beforeEach(() => {
-    TestBed.configureTestingModule({imports: [<%- ngModuleName %>.forRoot()]});
+    TestBed.configureTestingModule({
+      imports: [
+        <%- ngModuleName %>.forRoot()
+      ]
+    });
   });
 
   it('should say hello world', () => {

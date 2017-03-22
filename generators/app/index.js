@@ -115,7 +115,7 @@ module.exports = Generator.extend({
 
   writing: function () {
     this.props = this.config.getAll();
-    this.props.ngModuleFilename = _.lowerFirst(`${this.props.ngModuleName.replace(/Module$/, '')}.module.ts`);
+    this.props.ngModuleFilename = `${_.kebabCase(this.props.ngModuleName.replace(/Module$/, ''))}.module.ts`;
     this.props.currentYear = new Date().getFullYear();
     const folders = ['demo', 'test'];
     folders.forEach(folder => {
@@ -138,7 +138,7 @@ module.exports = Generator.extend({
       'tslint.json',
       'webpack.config.umd.ts',
       'webpack.config.ts',
-      'src/helloWorld.component.ts',
+      'src/hello-world.component.ts',
       'src/index.ts'
     ];
     files.forEach(file => {
@@ -168,7 +168,7 @@ module.exports = Generator.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('src/ngModule.module.ts'),
+      this.templatePath('src/ng-module.module.ts'),
       this.destinationPath('src/' + this.props.ngModuleFilename),
       this.props
     );
