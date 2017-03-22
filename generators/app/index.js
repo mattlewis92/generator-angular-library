@@ -116,6 +116,7 @@ module.exports = Generator.extend({
   writing: function () {
     this.props = this.config.getAll();
     this.props.ngModuleFilename = _.lowerFirst(`${this.props.ngModuleName.replace(/Module$/, '')}.module.ts`);
+    this.props.currentYear = new Date().getFullYear();
     const folders = ['demo', 'test'];
     folders.forEach(folder => {
       this.fs.copyTpl(
