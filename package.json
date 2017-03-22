@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-library",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "Generate a angular 2.0+ scaffolding suitable for publishing a re-usable library to npm",
   "homepage": "",
   "author": {
