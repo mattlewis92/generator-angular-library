@@ -70,19 +70,19 @@ https://<%- githubUsername %>.github.io/<%- githubRepoName %>/docs/
 ## Development
 
 ### Prepare your environment
-* Install [Node.js](http://nodejs.org/) and NPM (should come with)
-* Install local dev dependencies: `npm install` while current directory is this repo
+* Install [Node.js](http://nodejs.org/) and <% if (isYarnAvailable) { %>[yarn](https://yarnpkg.com/en/docs/install)<% } else { %>NPM<% } %>
+* Install local dev dependencies: `<% if (isYarnAvailable) { %>yarn<% } else { %>npm install<% } %>` while current directory is this repo
 
 ### Development server
-Run `npm start` to start a development server on port 8000 with auto reload + tests.
+Run `<% if (isYarnAvailable) { %>yarn<% } else { %>npm<% } %> start` to start a development server on port 8000 with auto reload + tests.
 
 ### Testing
-Run `npm test` to run tests once or `npm run test:watch` to continually run tests.
+Run `<% if (isYarnAvailable) { %>yarn<% } else { %>npm<% } %> test` to run tests once or `<% if (isYarnAvailable) { %>yarn<% } else { %>npm<% } %> run test:watch` to continually run tests.
 
 ### Release
 * Bump the version in package.json (once the module hits 1.0 this will become automatic)
 ```bash
-npm run release
+<% if (isYarnAvailable) { %>yarn<% } else { %>npm<% } %> run release
 ```
 
 ## License
