@@ -57,7 +57,7 @@
     "@types/webpack": "^2.2.8",
     "awesome-typescript-loader": "^3.0.8",
     "chai": "^3.5.0",
-    "codecov-lite": "^0.1.3",
+    "codecov": "^2.1.0",
     "codelyzer": "^2.0.0",
     "commitizen": "^2.8.1",
     "compodoc": "^0.0.41",
