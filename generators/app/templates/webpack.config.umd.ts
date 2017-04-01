@@ -1,8 +1,10 @@
 import * as path from 'path';
+import * as fs from 'fs';
 import * as webpack from 'webpack';
-const angularExternals = require('webpack-angular-externals');
-const rxjsExternals = require('webpack-rxjs-externals');
-const pkg = require('./package.json');
+import * as angularExternals from 'webpack-angular-externals';
+import * as rxjsExternals from 'webpack-rxjs-externals';
+
+const pkg = JSON.parse(fs.readFileSync('./package.json').toString());
 
 export default {
   entry: {
