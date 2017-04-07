@@ -7,10 +7,12 @@ script: npm test
 
 notifications:
   email: false
-
+<% if (isYarnAvailable) { %>
 cache:
   directories:
     - node_modules
-
+<% } else { %>
+cache: yarn
+<% } %>
 after_success:
 - npm run codecov
