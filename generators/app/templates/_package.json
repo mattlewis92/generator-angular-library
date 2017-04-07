@@ -52,7 +52,7 @@
     "@types/html-webpack-plugin": "^2.11.2",
     "@types/jasmine": "^2.2.33",
     "@types/node": "^7.0.0",
-    "@types/sinon": "^1.16.27",
+    "@types/sinon": "^2.1.2",
     "@types/sinon-chai": "^2.7.26",
     "@types/webpack": "^2.2.8",
     "awesome-typescript-loader": "^3.0.8",
