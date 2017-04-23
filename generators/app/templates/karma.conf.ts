@@ -32,7 +32,11 @@ export default config => {
           test: /\.ts$/,
           loader: 'tslint-loader',
           exclude: /node_modules/,
-          enforce: 'pre'
+          enforce: 'pre',
+          options: {
+            emitErrors: config.singleRun,
+            failOnHint: config.singleRun
+          }
         }, {
           test: /\.ts$/,
           loader: 'awesome-typescript-loader',
@@ -48,14 +52,6 @@ export default config => {
         new webpack.SourceMapDevToolPlugin({
           filename: null,
           test: /\.(ts|js)($|\?)/i
-        }),
-        new webpack.LoaderOptionsPlugin({
-          options: {
-            tslint: {
-              emitErrors: config.singleRun,
-              failOnHint: false
-            }
-          }
         }),
         new webpack.ContextReplacementPlugin(
           /angular(\\|\/)core(\\|\/)@angular/,
