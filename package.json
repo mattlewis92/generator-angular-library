@@ -25,11 +25,10 @@
     "yosay": "^2.0.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
+    "chai": "^4.0.0",
     "inquirer-test": "^1.0.5",
-    "mocha": "^3.2.0",
-    "xo": "^0.18.0",
+    "mocha": "^3.4.2",
+    "xo": "^0.18.2",
     "yo": "^1.8.5"
   },
   "repository": "git@github.com:mattlewis92/generator-angular-library.git",
