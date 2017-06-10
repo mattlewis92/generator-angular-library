@@ -25,7 +25,7 @@ export default config => {
 
     webpack: {
       resolve: {
-        extensions: ['.ts', '.js', '.json']
+        extensions: ['.ts', '.js']
       },
       module: {
         rules: [{
