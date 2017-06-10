@@ -1,6 +1,7 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 const IS_PROD: boolean = process.argv.indexOf('-p') > -1;
 
@@ -18,8 +19,11 @@ export default {
       enforce: 'pre'
     }, {
       test: /\.ts$/,
-      loader: 'awesome-typescript-loader',
-      exclude: /node_modules/
+      loader: 'ts-loader',
+      exclude: /node_modules/,
+      options: {
+        transpileOnly: !IS_PROD
+      }
     }]
   },
   resolve: {
@@ -32,7 +36,12 @@ export default {
     historyApiFallback: true
   },
   plugins: [
-    ...(IS_PROD ? [] : [new webpack.HotModuleReplacementPlugin()]),
+    ...(IS_PROD ? [] : [
+      new webpack.HotModuleReplacementPlugin(),
+      new ForkTsCheckerWebpackPlugin({
+        watch: ['./src', './demo']
+      })
+    ]),
     new webpack.DefinePlugin({
       ENV: JSON.stringify(IS_PROD ? 'production' : 'development')
     }),
