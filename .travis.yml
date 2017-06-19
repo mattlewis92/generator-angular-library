@@ -16,3 +16,5 @@ addons:
   chrome: stable
 
 dist: trusty
+
+sudo: required

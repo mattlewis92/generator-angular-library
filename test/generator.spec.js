@@ -1,11 +1,12 @@
 'use strict';
 
 const os = require('os');
+const path = require('path');
 const inquirerTest = require('inquirer-test');
 const shelljs = require('shelljs');
 
-const cliPath = `${__dirname}/../node_modules/.bin/yo`;
-const tmpDir = `${os.tmpdir()}/generator-angular-lib-test`;
+const cliPath = path.join(__dirname, '../node_modules/.bin/yo');
+const tmpDir = path.join(os.tmpdir(), 'generator-angular-lib-test');
 const inquirerTimeout = 1000;
 
 describe('generator', () => {
