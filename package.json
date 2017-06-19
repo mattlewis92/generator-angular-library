@@ -38,7 +38,8 @@
     "preversion": "npm test",
     "postversion": "npm publish",
     "test": "mocha --timeout 240000",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "pretest": "npm run lint"
   },
   "xo": {
     "space": true,

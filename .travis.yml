@@ -10,11 +10,4 @@ script: npm test
 notifications:
   email: false
 
-cache:
-  directories:
-    - node_modules
-
-addons:
-  chrome: beta
-
-os: osx
+cache: yarn

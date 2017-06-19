@@ -1,12 +1,11 @@
 'use strict';
 
 const os = require('os');
-const path = require('path');
+const inquirerTest = require('inquirer-test');
 const shelljs = require('shelljs');
-const inquirerTest = require('./inquirer-test');
 
-const cliPath = path.join(__dirname, '../node_modules/.bin/yo');
-const tmpDir = path.join(os.tmpdir(), 'generator-angular-lib-test');
+const cliPath = `${__dirname}/../node_modules/.bin/yo`;
+const tmpDir = `${os.tmpdir()}/generator-angular-lib-test`;
 const inquirerTimeout = 1000;
 
 describe('generator', () => {
@@ -19,6 +18,7 @@ describe('generator', () => {
     shelljs.cd(tmpDir);
 
     return inquirerTest(cliPath, [
+      inquirerTest.ENTER,
       'mattlewis92',
       inquirerTest.ENTER,
       'test',
@@ -33,8 +33,7 @@ describe('generator', () => {
       inquirerTest.ENTER,
       inquirerTest.ENTER,
       inquirerTest.ENTER
-    ], inquirerTimeout).then(result => {
-      console.log(result);
+    ], inquirerTimeout).then(() => {
       const commands = ['npm test', 'npm run build:demo', 'npm run compodoc'];
       const failedCommands = commands
         .map(command => shelljs.exec(command))
