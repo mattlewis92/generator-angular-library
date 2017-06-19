@@ -18,3 +18,8 @@ notifications:
 cache:
   directories:
     - node_modules
+
+addons:
+  chrome: beta
+
+os: osx
