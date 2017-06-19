@@ -2,8 +2,6 @@ language: node_js
 
 node_js:
 - '8'
-- '6'
-- '4'
 
 script: npm test
 
@@ -11,3 +9,8 @@ notifications:
   email: false
 
 cache: yarn
+
+addons:
+  chrome: stable
+
+dist: trusty
