@@ -33,8 +33,7 @@ describe('generator', () => {
       inquirerTest.ENTER,
       inquirerTest.ENTER,
       inquirerTest.ENTER
-    ], inquirerTimeout).then(output => {
-      console.log('output', output);
+    ], inquirerTimeout).then(() => {
       const commands = ['npm test', 'npm run build:demo', 'npm run compodoc'];
       const failedCommands = commands
         .map(command => shelljs.exec(command))
