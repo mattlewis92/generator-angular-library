@@ -2,8 +2,8 @@
 
 const os = require('os');
 const path = require('path');
-const inquirerTest = require('inquirer-test');
 const shelljs = require('shelljs');
+const inquirerTest = require('./inquirer-test');
 
 const cliPath = path.join(__dirname, '../node_modules/.bin/yo');
 const tmpDir = path.join(os.tmpdir(), 'generator-angular-lib-test');
@@ -19,7 +19,6 @@ describe('generator', () => {
     shelljs.cd(tmpDir);
 
     return inquirerTest(cliPath, [
-      inquirerTest.ENTER,
       'mattlewis92',
       inquirerTest.ENTER,
       'test',
