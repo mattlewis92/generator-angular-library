@@ -7,6 +7,7 @@ const shelljs = require('shelljs');
 
 const cliPath = path.join(__dirname, '../node_modules/.bin/yo');
 const tmpDir = path.join(os.tmpdir(), 'generator-angular-lib-test');
+const inquirerTimeout = 1000;
 
 describe('generator', () => {
   it('should run successfully', () => {
@@ -33,7 +34,7 @@ describe('generator', () => {
       inquirerTest.ENTER,
       inquirerTest.ENTER,
       inquirerTest.ENTER
-    ]).then(result => {
+    ], inquirerTimeout).then(result => {
       console.log(result);
       const commands = ['npm test', 'npm run build:demo', 'npm run compodoc'];
       const failedCommands = commands
