@@ -34,7 +34,7 @@ describe('generator', () => {
       inquirerTest.ENTER,
       inquirerTest.ENTER,
       inquirerTest.ENTER
-    ], inquirerTimeout).then((result) => {
+    ], inquirerTimeout).then(result => {
       console.log(result);
       const commands = ['npm test', 'npm run build:demo', 'npm run compodoc'];
       const failedCommands = commands
