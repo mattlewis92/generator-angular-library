@@ -11,3 +11,8 @@ notifications:
   email: false
 
 cache: yarn
+
+addons:
+  chrome: stable
+
+dist: trusty
