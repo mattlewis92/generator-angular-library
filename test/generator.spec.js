@@ -34,7 +34,8 @@ describe('generator', () => {
       inquirerTest.ENTER,
       inquirerTest.ENTER,
       inquirerTest.ENTER
-    ], inquirerTimeout).then(() => {
+    ], inquirerTimeout).then((result) => {
+      console.log(result);
       const commands = ['npm test', 'npm run build:demo', 'npm run compodoc'];
       const failedCommands = commands
         .map(command => shelljs.exec(command))
