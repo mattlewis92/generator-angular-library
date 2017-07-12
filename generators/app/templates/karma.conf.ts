@@ -46,7 +46,7 @@ export default config => {
             transpileOnly: !config.singleRun
           }
         }, {
-          test: /src\/.+\.ts$/,
+          test: /src(\\|\/).+\.ts$/,
           exclude: /(node_modules|\.spec\.ts$)/,
           loader: 'istanbul-instrumenter-loader',
           enforce: 'post'
