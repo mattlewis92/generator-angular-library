@@ -21,6 +21,6 @@
     "strictMetadataEmit": true,
     "genDir": "./dist/",
     "skipTemplateCodegen": true,
-    "debug": true
+    "trace": true
   }
 }
