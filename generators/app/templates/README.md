@@ -70,19 +70,19 @@ https://<%- githubUsername %>.github.io/<%- githubRepoName %>/docs/
 ## Development
 
 ### Prepare your environment
-* Install [Node.js](http://nodejs.org/) and <% if (isYarnAvailable) { %>[yarn](https://yarnpkg.com/en/docs/install)<% } else { %>NPM<% } %>
-* Install local dev dependencies: `<% if (isYarnAvailable) { %>yarn<% } else { %>npm install<% } %>` while current directory is this repo
+* Install [Node.js](http://nodejs.org/) and <% if (packageManager === 'yarn') { %>[yarn](https://yarnpkg.com/en/docs/install)<% } else { %>NPM<% } %>
+* Install local dev dependencies: `<% if (packageManager === 'yarn') { %>yarn<% } else { %>npm install<% } %>` while current directory is this repo
 
 ### Development server
-Run `<% if (isYarnAvailable) { %>yarn<% } else { %>npm<% } %> start` to start a development server on port 8000 with auto reload + tests.
+Run `<% if (packageManager === 'yarn') { %>yarn<% } else { %>npm<% } %> start` to start a development server on port 8000 with auto reload + tests.
 
 ### Testing
-Run `<% if (isYarnAvailable) { %>yarn<% } else { %>npm<% } %> test` to run tests once or `<% if (isYarnAvailable) { %>yarn<% } else { %>npm<% } %> run test:watch` to continually run tests.
+Run `<% if (packageManager === 'yarn') { %>yarn<% } else { %>npm<% } %> test` to run tests once or `<% if (packageManager === 'yarn') { %>yarn<% } else { %>npm<% } %> run test:watch` to continually run tests.
 
 ### Release
 * Bump the version in package.json (once the module hits 1.0 this will become automatic)
 ```bash
-<% if (isYarnAvailable) { %>yarn<% } else { %>npm<% } %> run release
+<% if (packageManager === 'yarn') { %>yarn<% } else { %>npm<% } %> run release
 ```
 
 ## License

@@ -104,6 +104,19 @@ module.exports = Generator.extend({
         message: 'What is the author name?',
         default: this.user.git.name(),
         when: isEmpty(this.initialConfig.authorName)
+      }, {
+        type: 'list',
+        name: 'packageManager',
+        message: 'What package manager should be used to install dependencies?',
+        default: 'npm',
+        choices: [{
+          name: 'npm',
+          value: 'npm'
+        }, {
+          name: 'yarn',
+          value: 'yarn'
+        }],
+        when: caniuseYarn && isEmpty(this.initialConfig.packageManager)
       }];
 
       return this.prompt(prompts);
@@ -117,7 +130,6 @@ module.exports = Generator.extend({
     this.props = this.config.getAll();
     this.props.ngModuleFilename = `${_.kebabCase(this.props.ngModuleName.replace(/Module$/, ''))}.module.ts`;
     this.props.currentYear = new Date().getFullYear();
-    this.props.isYarnAvailable = caniuseYarn;
     const folders = ['demo', 'test'];
     folders.forEach(folder => {
       this.fs.copyTpl(
@@ -178,7 +190,7 @@ module.exports = Generator.extend({
   install: function () {
     this.log('Creating gh-pages branch');
     shelljs.exec('git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master');
-    if (caniuseYarn) {
+    if (this.props.packageManager === 'yarn') {
       this.yarnInstall([], {ignoreEngines: true});
     } else {
       this.npmInstall();

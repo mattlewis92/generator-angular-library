@@ -18,21 +18,22 @@ describe('generator', () => {
     shelljs.cd(tmpDir);
 
     return inquirerTest(cliPath, [
-      inquirerTest.ENTER,
-      'mattlewis92',
-      inquirerTest.ENTER,
-      'test',
-      inquirerTest.ENTER,
-      'test',
-      inquirerTest.ENTER,
-      inquirerTest.ENTER,
-      inquirerTest.ENTER,
-      'mwl',
-      inquirerTest.ENTER,
-      'Test',
-      inquirerTest.ENTER,
-      inquirerTest.ENTER,
-      inquirerTest.ENTER
+      inquirerTest.ENTER, // Select angular-library generator
+      'mattlewis92', // Github username
+      inquirerTest.ENTER, // Next option
+      'test', // Github repo name
+      inquirerTest.ENTER, // Next option
+      'test', // Npm module name
+      inquirerTest.ENTER, // Next option
+      inquirerTest.ENTER, // Use default ngModuleName
+      inquirerTest.ENTER, // Next option
+      'mwl', // Selector prefix
+      inquirerTest.ENTER, // Next option
+      'Test', // Project title
+      inquirerTest.ENTER, // Next option
+      inquirerTest.ENTER, // No description
+      inquirerTest.ENTER, // No author name
+      inquirerTest.ENTER // Use npm as package manager
     ], inquirerTimeout).then(() => {
       const commands = ['npm test', 'npm run build:demo', 'npm run compodoc'];
       const failedCommands = commands

@@ -7,7 +7,7 @@ script: npm test
 
 notifications:
   email: false
-<% if (!isYarnAvailable) { %>
+<% if (packageManager !== 'yarn') { %>
 cache:
   directories:
     - node_modules
