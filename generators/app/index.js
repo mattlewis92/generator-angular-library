@@ -8,6 +8,8 @@ const caniuseYarn = require('@danielbayerlein/caniuse-yarn')();
 const shelljs = require('shelljs');
 const isEmpty = require('is-null-like');
 
+const npmMajor = shelljs.exec('npm -v', {silent: true}).match(/(^\d+)/)[0];
+
 module.exports = Generator.extend({
 
   initializing: function () {
@@ -108,7 +110,7 @@ module.exports = Generator.extend({
         type: 'list',
         name: 'packageManager',
         message: 'What package manager should be used to install dependencies?',
-        default: 'npm',
+        default: npmMajor >= 5 ? 'npm' : 'yarn',
         choices: [{
           name: 'npm',
           value: 'npm'
