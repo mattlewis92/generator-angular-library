@@ -68,7 +68,7 @@
     "fork-ts-checker-webpack-plugin": "^0.2.2",
     "html-webpack-plugin": "^2.28.0",
     "husky": "^0.14.3",
-    "istanbul-instrumenter-loader": "^2.0.0",
+    "istanbul-instrumenter-loader": "^3.0.0-rc.1",
     "karma": "^1.4.1",
     "karma-chrome-launcher": "^2.1.1",
     "karma-coverage-istanbul-reporter": "^1.0.0",
