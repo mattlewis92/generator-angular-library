@@ -35,7 +35,6 @@
   "license": "MIT",
   "scripts": {
     "lint": "xo",
-    "preversion": "npm test",
     "postversion": "npm publish",
     "test": "mocha --timeout 300000",
     "test:watch": "npm test -- --watch",
