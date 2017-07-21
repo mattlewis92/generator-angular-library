@@ -14,6 +14,15 @@ export default {
   module: {
     rules: [{
       test: /\.ts$/,
+      loader: 'prettier-loader',
+      exclude: /node_modules/,
+      enforce: 'pre',
+      options: {
+        singleQuote: true,
+        parser: 'typescript'
+      }
+    }, {
+      test: /\.ts$/,
       loader: 'tslint-loader',
       exclude: /node_modules/,
       enforce: 'pre'

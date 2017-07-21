@@ -24,7 +24,15 @@
     "release":"npm run release:git && npm run release:npm",
     "postrelease": "npm run build:clean && npm run gh-pages",
     "commitmsg": "validate-commit-msg",
-    "codecov": "cat coverage/lcov.info | codecov"
+    "codecov": "cat coverage/lcov.info | codecov",
+    "prettier": "prettier --single-quote --parser typescript --write",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "{demo,src,test}/**/*.ts": [
+      "npm run prettier",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -76,7 +84,10 @@
     "karma-mocha-reporter": "^2.2.3",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
+    "lint-staged": "^4.0.2",
     "mocha": "^3.3.0",
+    "prettier": "^1.5.3",
+    "prettier-loader": "^1.0.1",
     "rxjs": "^5.0.1",
     "sinon": "^2.0.0",
     "sinon-chai": "^2.8.0",
@@ -84,6 +95,7 @@
     "ts-loader": "^2.1.0",
     "ts-node": "^3.0.0",
     "tslint": "^5.1.0",
+    "tslint-config-mwl": "^0.1.0",
     "tslint-loader": "^3.5.3",
     "typescript": "~2.4.1",
     "validate-commit-msg": "^2.8.0",
