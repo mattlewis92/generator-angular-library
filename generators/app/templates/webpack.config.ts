@@ -14,7 +14,7 @@ export default {
   module: {
     rules: [{
       test: /\.ts$/,
-      loader: 'tslint-loader?emitErrors=false&failOnHint=false',
+      loader: 'tslint-loader',
       exclude: /node_modules/,
       enforce: 'pre'
     }, {
