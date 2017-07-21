@@ -32,7 +32,7 @@ npm install --save <%- npmModuleName %>
 Then include in your apps module:
 
 ```typescript
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { <%- ngModuleName %> } from '<%- npmModuleName %>';
 
 @NgModule({
