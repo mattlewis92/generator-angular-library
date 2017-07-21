@@ -1,4 +1,4 @@
-import { inject, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { expect } from 'chai';
 import { HelloWorldComponent } from '../src/hello-world.component';
 import { <%- ngModuleName %> } from '../src';
