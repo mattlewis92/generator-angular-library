@@ -154,7 +154,8 @@ module.exports = Generator.extend({
       'webpack.config.umd.ts',
       'webpack.config.ts',
       'src/hello-world.component.ts',
-      'src/index.ts'
+      'src/index.ts',
+      'custom-typings.d.ts'
     ];
     files.forEach(file => {
       this.fs.copyTpl(
