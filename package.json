@@ -29,7 +29,7 @@
     "mocha": "^3.4.2",
     "nixt": "^0.5.0",
     "xo": "^0.18.2",
-    "yo": "^1.8.5"
+    "yo": "^2.0.0"
   },
   "repository": "git@github.com:mattlewis92/generator-angular-library.git",
   "license": "MIT",
