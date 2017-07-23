@@ -42,6 +42,7 @@ export default {
     extensions: ['.ts', '.js']
   },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
       sourceMap: true

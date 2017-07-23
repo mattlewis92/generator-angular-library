@@ -37,7 +37,9 @@ export default {
     overlay: true
   },
   plugins: [
-    ...(IS_PROD ? [] : [
+    ...(IS_PROD ? [
+      new webpack.optimize.ModuleConcatenationPlugin()
+    ] : [
       new webpack.HotModuleReplacementPlugin(),
       new ForkTsCheckerWebpackPlugin({
         watch: ['./src', './demo'],
