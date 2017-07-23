@@ -150,6 +150,7 @@ module.exports = Generator.extend({
       'tsconfig.json',
       'tsconfig-ngc.json',
       'tsconfig-compodoc.json',
+      'tsconfig-demo.json',
       'tslint.json',
       'webpack.config.umd.ts',
       'webpack.config.ts',

@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
+import { AotPlugin } from '@ngtools/webpack';
 
 export default (environment = 'development') => {
 
@@ -15,19 +16,22 @@ export default (environment = 'development') => {
       filename: ifProduction('[name]-[chunkhash].js', '[name].js')
     },
     module: {
-      rules: removeEmpty([{
+      rules: removeEmpty([ifDevelopment({
         test: /\.ts$/,
         loader: 'tslint-loader',
         exclude: /node_modules/,
         enforce: 'pre'
-      }, {
+      }), ifDevelopment({
         test: /\.ts$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          transpileOnly: environment === 'development'
+          transpileOnly: true
         }
-      }])
+      }, {
+        test: /\.ts$/,
+        loader: '@ngtools/webpack'
+      })])
     },
     resolve: {
       extensions: ['.ts', '.js']
@@ -41,6 +45,9 @@ export default (environment = 'development') => {
     },
     plugins: removeEmpty([
       ifProduction(new webpack.optimize.ModuleConcatenationPlugin()),
+      ifProduction(new AotPlugin({
+        tsConfigPath: './tsconfig-demo.json'
+      })),
       ifDevelopment(new webpack.HotModuleReplacementPlugin()),
       ifDevelopment(new ForkTsCheckerWebpackPlugin({
         watch: ['./src', './demo'],
