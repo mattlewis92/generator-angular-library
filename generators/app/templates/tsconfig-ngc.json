@@ -9,7 +9,7 @@
     "inlineSources": true,
     "types": [],
     "importHelpers": true,
-    "emitDecoratorMetadata": false,
+    "emitDecoratorMetadata": false
   },
   "files": [
     "src/index.ts"
