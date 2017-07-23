@@ -1,21 +1,22 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
     "module": "es2015",
-    "moduleResolution": "node",
     "declaration": true,
-    "experimentalDecorators": true,
     "baseUrl": "",
     "stripInternal": true,
     "outDir": "./dist",
-    "sourceMap": true,
     "inlineSources": true,
     "types": [],
-    "lib": ["es2015", "dom"],
-    "importHelpers": true
+    "importHelpers": true,
+    "emitDecoratorMetadata": false,
   },
   "files": [
     "src/index.ts"
+  ],
+  "exclude": [
+    "test",
+    "demo"
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,

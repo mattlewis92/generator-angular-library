@@ -11,9 +11,9 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*",
-    "test/**/*",
-    "demo/**/*",
+    "src",
+    "test",
+    "demo",
     "custom-typings.d.ts"
   ],
   "exclude": [
