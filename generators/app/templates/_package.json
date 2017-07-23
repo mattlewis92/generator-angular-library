@@ -87,6 +87,7 @@
     "karma-webpack": "^2.0.1",
     "lint-staged": "^4.0.2",
     "mocha": "^3.3.0",
+    "offline-plugin": "^4.8.3",
     "prettier": "^1.5.3",
     "rxjs": "^5.0.1",
     "sinon": "^2.0.0",

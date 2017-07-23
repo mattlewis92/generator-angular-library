@@ -4,6 +4,7 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
 import { AotPlugin } from '@ngtools/webpack';
+import * as OfflinePlugin from 'offline-plugin';
 
 export default (environment = 'development') => {
 
@@ -62,7 +63,8 @@ export default (environment = 'development') => {
       ),
       new HtmlWebpackPlugin({
         template: path.join(__dirname, 'demo', 'index.ejs')
-      })
+      }),
+      ifProduction(new OfflinePlugin())
     ])
   };
 };
