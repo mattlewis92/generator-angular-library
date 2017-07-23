@@ -35,6 +35,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "xo",
+    "preversion": "npm test",
     "postversion": "npm publish",
     "pretest": "npm run lint",
     "test": "NODE_ENV=test mocha --timeout 300000",
