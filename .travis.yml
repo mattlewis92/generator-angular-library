@@ -10,7 +10,9 @@ script: npm test
 notifications:
   email: false
 
-cache: yarn
+cache:
+  directories:
+  - node_modules
 
 addons:
   chrome: stable
