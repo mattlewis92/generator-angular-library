@@ -1,51 +1,54 @@
 'use strict';
 
 const os = require('os');
-const inquirerTest = require('inquirer-test');
 const shelljs = require('shelljs');
+const nixt = require('nixt');
 
 const cliPath = `${__dirname}/../node_modules/.bin/yo`;
 const tmpDir = `${os.tmpdir()}/generator-angular-lib-test`;
-const inquirerTimeout = 1000;
 
 describe('generator', () => {
-  it('should run successfully', () => {
+  it('should run successfully', (done) => {
     console.info('Testing generator in', tmpDir);
 
-    shelljs.rm('-rf', tmpDir);
-    shelljs.mkdir(tmpDir);
-    shelljs.exec('npm link');
-    shelljs.cd(tmpDir);
+    nixt()
+      .exec(`rm -rf ${tmpDir}`)
+      .mkdir(tmpDir)
+      .exec('npm link')
+      .cwd(tmpDir)
+      .run(`${cliPath} angular-library`)
+      .on(/What is the github project organisation or username/).respond('mattlewis92\n')
+      .on(/What is the github repository name/).respond('angular-lib-test\n')
+      .on(/What is the npm module name/).respond('angular-lib-test\n')
+      .on(/What should the module be exported as on the window for users not using module/).respond('\n')
+      .on(/What should the NgModule name be/).respond('LibTestModule\n')
+      .on(/What should the component \/ directive selector prefix be /).respond('mwl\n')
+      .on(/What is the human readable project title/).respond('\n')
+      .on(/What is the project description/).respond('Description\n')
+      .on(/What is the author name/).respond('Matt Lewis\n')
+      .on(/What package manager should be used to install dependencies/).respond('\n')
+      .end((err) => {
 
-    return inquirerTest(cliPath, [
-      inquirerTest.ENTER, // Select angular-library generator
-      'mattlewis92', // Github username
-      inquirerTest.ENTER, // Next option
-      'test', // Github repo name
-      inquirerTest.ENTER, // Next option
-      'test', // Npm module name
-      inquirerTest.ENTER, // Next option
-      inquirerTest.ENTER, // Use default ngModuleName
-      inquirerTest.ENTER, // Next option
-      'mwl', // Selector prefix
-      inquirerTest.ENTER, // Next option
-      'Test', // Project title
-      inquirerTest.ENTER, // Next option
-      inquirerTest.ENTER, // No description
-      inquirerTest.ENTER, // No author name
-      inquirerTest.ENTER // Use npm as package manager
-    ], inquirerTimeout).then(() => {
-      const commands = ['npm test', 'npm run build:demo', 'npm run compodoc'];
-      const failedCommands = commands
-        .map(command => shelljs.exec(command))
-        .filter(result => result.code !== 0);
+        if (err) {
+          return done(err);
+        }
 
-      shelljs.rm('-rf', tmpDir);
+        shelljs.cd(tmpDir);
 
-      if (failedCommands.length > 0) {
-        return Promise.reject(new Error('Generator test failed'));
-      }
-    });
+        const commands = ['npm test', 'npm run build:demo', 'npm run compodoc'];
+        const failedCommands = commands
+          .map(command => shelljs.exec(command))
+          .filter(result => result.code !== 0);
+
+        shelljs.rm('-rf', tmpDir);
+
+        if (failedCommands.length > 0) {
+          done(new Error('Generator test failed'));
+        } else {
+          done();
+        }
+
+      });
   });
 });
 
