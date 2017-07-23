@@ -39,7 +39,8 @@ export default {
     ...(IS_PROD ? [] : [
       new webpack.HotModuleReplacementPlugin(),
       new ForkTsCheckerWebpackPlugin({
-        watch: ['./src', './demo']
+        watch: ['./src', './demo'],
+        formatter: 'codeframe'
       })
     ]),
     new webpack.DefinePlugin({
