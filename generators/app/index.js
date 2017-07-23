@@ -194,7 +194,7 @@ module.exports = Generator.extend({
   install: function () {
     this.log('Creating gh-pages branch');
     shelljs.exec('git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master');
-    if (this.props.packageManager === 'yarn' || process.env.NODE_ENV === 'test') { // npm5 tanks my computer when ran in a process
+    if (this.props.packageManager === 'yarn' || process.env.NODE_ENV === 'test') { // Npm5 tanks my computer when ran in a process
       this.yarnInstall([], {ignoreEngines: true});
     } else {
       this.npmInstall();

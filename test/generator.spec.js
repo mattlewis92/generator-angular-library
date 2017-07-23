@@ -8,7 +8,7 @@ const cliPath = `${__dirname}/../node_modules/.bin/yo`;
 const tmpDir = `${os.tmpdir()}/generator-angular-lib-test`;
 
 describe('generator', () => {
-  it('should run successfully', (done) => {
+  it('should run successfully', done => {
     console.info('Testing generator in', tmpDir);
 
     nixt()
@@ -27,8 +27,7 @@ describe('generator', () => {
       .on(/What is the project description/).respond('Description\n')
       .on(/What is the author name/).respond('Matt Lewis\n')
       .on(/What package manager should be used to install dependencies/).respond('\n')
-      .end((err) => {
-
+      .end(err => {
         if (err) {
           return done(err);
         }
@@ -47,7 +46,6 @@ describe('generator', () => {
         } else {
           done();
         }
-
       });
   });
 });
