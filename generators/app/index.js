@@ -1,5 +1,3 @@
-'use strict';
-
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
@@ -12,11 +10,11 @@ const npmMajor = shelljs.exec('npm -v', {silent: true}).match(/(^\d+)/)[0];
 
 module.exports = Generator.extend({
 
-  initializing: function () {
+  initializing() {
     this.initialConfig = this.config.getAll();
   },
 
-  prompting: function () {
+  prompting() {
     this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular-library')} generator!`));
     this.logConfigInfo(this.initialConfig);
     const required = val => Boolean(val);
@@ -128,7 +126,7 @@ module.exports = Generator.extend({
     });
   },
 
-  writing: function () {
+  writing() {
     this.props = this.config.getAll();
     this.props.ngModuleFilename = `${_.kebabCase(this.props.ngModuleName.replace(/Module$/, ''))}.module.ts`;
     this.props.currentYear = new Date().getFullYear();
@@ -191,7 +189,7 @@ module.exports = Generator.extend({
     );
   },
 
-  install: function () {
+  install() {
     this.log('Creating gh-pages branch');
     shelljs.exec('git branch gh-pages && git checkout gh-pages && git push --set-upstream origin gh-pages && git checkout master');
     if (this.props.packageManager === 'yarn' || process.env.NODE_ENV === 'test') { // Npm5 tanks my computer when ran in a process
@@ -201,7 +199,7 @@ module.exports = Generator.extend({
     }
   },
 
-  logConfigInfo: function (config) {
+  logConfigInfo(config) {
     if (config && Object.keys(config).length > 0) {
       this.log('Using config: ');
       this.log(JSON.stringify(config, null, 2));

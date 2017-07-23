@@ -1,5 +1,3 @@
-'use strict';
-
 const os = require('os');
 const shelljs = require('shelljs');
 const nixt = require('nixt');

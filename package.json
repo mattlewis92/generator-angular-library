@@ -46,9 +46,6 @@
     "envs": [
       "node",
       "mocha"
-    ],
-    "rules": {
-      "object-shorthand": "off"
-    }
+    ]
   }
 }
