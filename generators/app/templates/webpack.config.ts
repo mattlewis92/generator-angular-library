@@ -33,7 +33,8 @@ export default {
     port: 8000,
     inline: true,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    overlay: true
   },
   plugins: [
     ...(IS_PROD ? [] : [
