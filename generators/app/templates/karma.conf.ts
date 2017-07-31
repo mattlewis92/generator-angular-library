@@ -56,7 +56,7 @@ export default (config: any) => {
       plugins: [
         new webpack.SourceMapDevToolPlugin({
           filename: null,
-          columns: config.singleRun,
+          columns: false,
           test: /\.(ts|js)($|\?)/i
         }),
         new webpack.ContextReplacementPlugin(
