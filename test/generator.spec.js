@@ -9,10 +9,11 @@ describe('generator', () => {
   it('should run successfully', done => {
     console.info('Testing generator in', tmpDir);
 
+    shelljs.rm('-rf', tmpDir);
+    shelljs.mkdir(tmpDir);
+    shelljs.exec('npm link');
+
     nixt()
-      .exec(`rm -rf ${tmpDir}`)
-      .mkdir(tmpDir)
-      .exec('npm link')
       .cwd(tmpDir)
       .run(`${cliPath} angular-library`)
       .on(/What is the github project organisation or username/).respond('mattlewis92\n')
