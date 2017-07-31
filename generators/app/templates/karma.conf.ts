@@ -1,6 +1,7 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
 import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import * as WebpackKarmaDieHardPlugin from '@mattlewis92/webpack-karma-die-hard';
 
 export default (config: any) => {
 
@@ -68,6 +69,7 @@ export default (config: any) => {
           formatter: 'codeframe'
         }),
         ...(config.singleRun ? [
+          new WebpackKarmaDieHardPlugin(),
           new webpack.NoEmitOnErrorsPlugin()
         ] : [])
       ]
