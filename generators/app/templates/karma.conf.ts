@@ -44,7 +44,7 @@ export default (config: any) => {
           loader: 'ts-loader',
           exclude: /node_modules/,
           options: {
-            transpileOnly: true
+            transpileOnly: !config.singleRun
           }
         }, {
           test: /src(\\|\/).+\.ts$/,
@@ -63,15 +63,15 @@ export default (config: any) => {
           /angular(\\|\/)core(\\|\/)@angular/,
           path.join(__dirname, 'src')
         ),
-        new ForkTsCheckerWebpackPlugin({
-          watch: ['./src', './test'],
-          async: !config.singleRun,
-          formatter: 'codeframe'
-        }),
         ...(config.singleRun ? [
           new WebpackKarmaDieHardPlugin(),
           new webpack.NoEmitOnErrorsPlugin()
-        ] : [])
+        ] : [
+          new ForkTsCheckerWebpackPlugin({
+            watch: ['./src', './test'],
+            formatter: 'codeframe'
+          })
+        ])
       ]
     },
 
