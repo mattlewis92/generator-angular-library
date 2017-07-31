@@ -57,6 +57,9 @@ export default (environment = 'development') => {
       new webpack.DefinePlugin({
         ENV: JSON.stringify(environment)
       }),
+      ifProduction(new webpack.optimize.UglifyJsPlugin({
+        sourceMap: true
+      })),
       new webpack.ContextReplacementPlugin(
         /angular(\\|\/)core(\\|\/)@angular/,
         path.join(__dirname, 'src')
