@@ -108,7 +108,7 @@ module.exports = Generator.extend({
         type: 'list',
         name: 'packageManager',
         message: 'What package manager should be used to install dependencies?',
-        default: npmMajor >= 5 ? 'npm' : 'yarn',
+        default: (npmMajor >= 5 || !caniuseYarn) ? 'npm' : 'yarn',
         choices: [{
           name: 'npm',
           value: 'npm'
