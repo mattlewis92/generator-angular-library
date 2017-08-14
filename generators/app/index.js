@@ -115,8 +115,8 @@ module.exports = Generator.extend({
         }, {
           name: 'yarn',
           value: 'yarn'
-        }],
-        when: caniuseYarn && isEmpty(this.initialConfig.packageManager)
+        }].filter(packageManager => packageManager.value === 'npm' || caniuseYarn),
+        when: isEmpty(this.initialConfig.packageManager)
       }];
 
       return this.prompt(prompts);
