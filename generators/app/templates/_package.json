@@ -47,6 +47,7 @@
     "url": "git+https://github.com/<%- githubUsername %>/<%- githubRepoName %>.git"
   },
   "keywords": [
+    "angular4",
     "angular2",
     "angular"
   ],
