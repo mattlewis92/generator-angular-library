@@ -134,6 +134,7 @@ module.exports = class AngularLibraryGenerator extends Generator {
     const files = [
       '.editorconfig',
       '.travis.yml',
+      '.prettierrc',
       'karma.conf.ts',
       'LICENSE',
       'README.md',

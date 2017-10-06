@@ -25,7 +25,7 @@
     "postrelease": "npm run build:clean && npm run gh-pages",
     "commitmsg": "commitlint -e",
     "codecov": "cat coverage/lcov.info | codecov",
-    "prettier": "prettier --single-quote --parser typescript --write",
+    "prettier": "prettier --write",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -99,7 +99,7 @@
     "lint-staged": "^4.0.2",
     "mocha": "^4.0.1",
     "offline-plugin": "^4.8.3",
-    "prettier": "^1.5.3",
+    "prettier": "^1.7.4",
     "rxjs": "^5.0.1",
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
