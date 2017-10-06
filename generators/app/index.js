@@ -179,7 +179,7 @@ module.exports = class AngularLibraryGenerator extends Generator {
       this.destinationPath('src/' + this.props.ngModuleFilename),
       this.props
     );
-  },
+  }
 
   install() {
     this.log('Creating gh-pages branch');
