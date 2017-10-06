@@ -23,7 +23,7 @@
     "release:npm": "npm run build:dist && npm run copyfiles && npm publish dist",
     "release":"npm run release:git && npm run release:npm",
     "postrelease": "npm run build:clean && npm run gh-pages",
-    "commitmsg": "validate-commit-msg",
+    "commitmsg": "commitlint -e",
     "codecov": "cat coverage/lcov.info | codecov",
     "prettier": "prettier --single-quote --parser typescript --write",
     "precommit": "lint-staged"
@@ -33,6 +33,14 @@
       "npm run prettier",
       "git add"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
+    }
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-angular"]
   },
   "repository": {
     "type": "git",
@@ -56,6 +64,9 @@
     "@angular/language-service": "^4.0.0",
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
+    "@commitlint/cli": "^4.1.0",
+    "@commitlint/config-angular": "^3.1.1",
+    "@commitlint/prompt": "^4.1.0",
     "@compodoc/compodoc": "^1.0.0-beta.3",
     "@mattlewis92/webpack-karma-die-hard": "^1.0.4",
     "@ngtools/webpack": "^1.5.2",
@@ -73,7 +84,6 @@
     "concurrently": "^3.0.0",
     "copyfiles": "^1.2.0",
     "core-js": "^2.4.1",
-    "cz-conventional-changelog": "^2.0.0",
     "del-cli": "^1.0.0",
     "fork-ts-checker-webpack-plugin": "^0.2.2",
     "html-webpack-plugin": "^2.28.0",
@@ -100,7 +110,6 @@
     "tslint-config-mwl": "^0.2.0",
     "tslint-loader": "^3.5.3",
     "typescript": "~2.5.3",
-    "validate-commit-msg": "^2.8.0",
     "webpack": "^3.3.0",
     "webpack-angular-externals": "^1.0.0",
     "webpack-config-utils": "^2.3.0",
@@ -110,10 +119,5 @@
   },
   "peerDependencies": {
     "@angular/core": ">=2.0.0 <5.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
   }
 }
