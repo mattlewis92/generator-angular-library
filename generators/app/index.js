@@ -19,7 +19,7 @@ module.exports = class AngularLibraryGenerator extends Generator {
     this.logConfigInfo(this.initialConfig);
     const required = val => Boolean(val);
 
-    return this.user.github.username.catch(() => '').then(githubUsername => {
+    return this.user.github.username().catch(() => '').then(githubUsername => {
       const prompts = [{
         type: 'input',
         name: 'githubUsername',
