@@ -8,26 +8,18 @@ const isEmpty = require('is-null-like');
 
 const npmMajor = shelljs.exec('npm -v', {silent: true}).match(/(^\d+)/)[0];
 
-module.exports = Generator.extend({
+module.exports = class AngularLibraryGenerator extends Generator {
 
   initializing() {
     this.initialConfig = this.config.getAll();
-  },
+  }
 
   prompting() {
     this.log(yosay(`Welcome to the awe-inspiring ${chalk.red('generator-angular-library')} generator!`));
     this.logConfigInfo(this.initialConfig);
     const required = val => Boolean(val);
 
-    const githubUsernamePromise = new Promise(resolve => {
-      try {
-        this.user.github.username((err, username) => resolve(username)); // eslint-disable-line handle-callback-err
-      } catch (err) {
-        resolve('');
-      }
-    });
-
-    return githubUsernamePromise.then(githubUsername => {
+    return this.user.github.username.catch(() => '').then(githubUsername => {
       const prompts = [{
         type: 'input',
         name: 'githubUsername',
@@ -124,7 +116,7 @@ module.exports = Generator.extend({
       this.config.set(props);
       this.config.save();
     });
-  },
+  }
 
   writing() {
     this.props = this.config.getAll();
@@ -197,7 +189,7 @@ module.exports = Generator.extend({
     } else {
       this.npmInstall();
     }
-  },
+  }
 
   logConfigInfo(config) {
     if (config && Object.keys(config).length > 0) {
@@ -208,4 +200,4 @@ module.exports = Generator.extend({
     }
   }
 
-});
+};
