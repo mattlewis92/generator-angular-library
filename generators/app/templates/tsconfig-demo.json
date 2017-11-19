@@ -12,8 +12,10 @@
   "angularCompilerOptions": {
     "strictMetadataEmit": true,
     "skipMetadataEmit" : true,
-    "genDir": "./dist",
     "entryModule": "demo/demo.module#DemoModule",
-    "trace": true
+    "trace": true,
+    "strictInjectionParameters": true,
+    "preserveWhitespaces": true,
+    "fullTemplateTypeCheck": false
   }
 }
