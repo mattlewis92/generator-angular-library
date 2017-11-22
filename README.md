@@ -1,5 +1,5 @@
 # generator-angular-library [![Build Status](https://travis-ci.org/mattlewis92/generator-angular-library.svg?branch=master)](https://travis-ci.org/mattlewis92/generator-angular-library)
->Simply scaffold your angular 4.0+ library with this yeoman generator and start writing code without having to setup any tedious boilerplate tooling. 
+>Simply scaffold your angular 5.0+ library with this yeoman generator and start writing code without having to setup any tedious boilerplate tooling. 
 
 Everything is pre-configured, from a local development server with unit tests, through to publishing your library to npm and a demo to github pages. Hopefully the [angular-cli](https://cli.angular.io/) project will one day make this generator obsolete, however currently the angular-cli is geared towards creating a full web-app rather than just a single re-usable npm library.
 
