@@ -55,14 +55,6 @@ export class MyComponent {}
 
 You may also find it useful to view the [demo source](https://github.com/<%- githubUsername %>/<%- githubRepoName %>/blob/master/demo/demo.component.ts).
 
-### Usage without a module bundler
-```
-<script src="node_modules/<%- npmModuleName %>/bundles/<%- npmModuleName %>.umd.js"></script>
-<script>
-    // everything is exported <%- moduleGlobal %> namespace
-</script>
-```
-
 ## Documentation
 All documentation is auto-generated from the source via [compodoc](https://compodoc.github.io/compodoc/) and can be viewed here:
 https://<%- githubUsername %>.github.io/<%- githubRepoName %>/docs/

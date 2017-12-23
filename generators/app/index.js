@@ -50,25 +50,14 @@ module.exports = class AngularLibraryGenerator extends Generator {
         }
       }, {
         type: 'input',
-        name: 'moduleGlobal',
-        message: 'What should the module be exported as on the window for users not using module bundlers?',
+        name: 'ngModuleName',
+        message: 'What should the NgModule name be?',
         validate: required,
         default: answers => {
           if (answers.allowNg2InModuleName === false) {
             this.log('Please start again with a new package name that doesnt start with ng2 or angular2.');
             process.exit(); // eslint-disable-line unicorn/no-process-exit
           }
-
-          const npmModuleName = this.initialConfig.npmModuleName || answers.npmModuleName;
-          return _.camelCase(npmModuleName);
-        },
-        when: isEmpty(this.initialConfig.moduleGlobal)
-      }, {
-        type: 'input',
-        name: 'ngModuleName',
-        message: 'What should the NgModule name be?',
-        validate: required,
-        default: answers => {
           const npmModuleName = this.initialConfig.npmModuleName || answers.npmModuleName;
           return _.upperFirst(_.camelCase(npmModuleName)) + 'Module';
         },
@@ -139,11 +128,9 @@ module.exports = class AngularLibraryGenerator extends Generator {
       'LICENSE',
       'README.md',
       'tsconfig.json',
-      'tsconfig-ngc.json',
       'tsconfig-compodoc.json',
       'tsconfig-demo.json',
       'tslint.json',
-      'webpack.config.umd.ts',
       'webpack.config.ts',
       'src/hello-world.component.ts',
       'src/index.ts',
