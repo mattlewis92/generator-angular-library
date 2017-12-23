@@ -114,10 +114,8 @@
     "tslint-loader": "^3.5.3",
     "typescript": "~2.5.3",
     "webpack": "^3.3.0",
-    "webpack-angular-externals": "^1.0.0",
     "webpack-config-utils": "^2.3.0",
     "webpack-dev-server": "^2.2.0",
-    "webpack-rxjs-externals": "^1.0.0",
     "zone.js": "^0.8.4"
   },
   "peerDependencies": {
