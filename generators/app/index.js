@@ -58,7 +58,11 @@ module.exports = class AngularLibraryGenerator extends Generator {
             this.log('Please start again with a new package name that doesnt start with ng2 or angular2.');
             process.exit(); // eslint-disable-line unicorn/no-process-exit
           }
-          const npmModuleName = this.initialConfig.npmModuleName || answers.npmModuleName;
+          const npmModuleName = (this.initialConfig.npmModuleName || answers.npmModuleName)
+            .replace(/^angular-/, '')
+            .replace(/^angularx-/, '')
+            .replace(/^ng-/, '')
+            .replace(/^ngx-/, '');
           return _.upperFirst(_.camelCase(npmModuleName)) + 'Module';
         },
         when: isEmpty(this.initialConfig.ngModuleName)
