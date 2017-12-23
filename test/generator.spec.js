@@ -19,7 +19,6 @@ describe('generator', () => {
       .on(/What is the github project organisation or username/).respond('mattlewis92\n')
       .on(/What is the github repository name/).respond('angular-lib-test\n')
       .on(/What is the npm module name/).respond('angular-lib-test\n')
-      .on(/What should the module be exported as on the window for users not using module/).respond('\n')
       .on(/What should the NgModule name be/).respond('LibTestModule\n')
       .on(/What should the component \/ directive selector prefix be /).respond('mwl\n')
       .on(/What is the human readable project title/).respond('\n')
