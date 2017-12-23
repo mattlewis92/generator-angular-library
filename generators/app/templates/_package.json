@@ -81,7 +81,7 @@
     "@types/webpack": "^3.0.4",
     "chai": "^4.0.0",
     "codecov": "^2.1.0",
-    "codelyzer": "^3.0.0",
+    "codelyzer": "^4.0.2",
     "commitizen": "^2.8.1",
     "concurrently": "^3.0.0",
     "copyfiles": "^1.2.0",
