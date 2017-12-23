@@ -40,7 +40,7 @@
     }
   },
   "commitlint": {
-    "extends": ["@commitlint/config-angular"]
+    "extends": ["@commitlint/config-conventional"]
   },
   "repository": {
     "type": "git",
@@ -66,9 +66,9 @@
     "@angular/language-service": "^5.0.0",
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
-    "@commitlint/cli": "^4.1.0",
-    "@commitlint/config-angular": "^3.1.1",
-    "@commitlint/prompt": "^4.1.0",
+    "@commitlint/cli": "^5.2.6",
+    "@commitlint/config-conventional": "^5.2.3",
+    "@commitlint/prompt": "^5.2.6",
     "@compodoc/compodoc": "^1.0.0-beta.3",
     "@mattlewis92/webpack-karma-die-hard": "^1.0.4",
     "@ngtools/webpack": "^1.5.2",
