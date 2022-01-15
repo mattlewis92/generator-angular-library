@@ -22,7 +22,7 @@
     "chalk": "^2.1.0",
     "is-null-like": "^1.0.3",
     "lodash": "^4.13.1",
-    "shelljs": "^0.7.6",
+    "shelljs": "^0.8.5",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
